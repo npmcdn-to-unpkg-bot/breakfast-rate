@@ -1,0 +1,15 @@
+{
+  "name": "breakfast-rate",
+  "version": "1.0.0",
+  "description": "Share and review your favorite breakfast recipes",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Thomas Kolodziejczak",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.4.1",
+    "express": "^4.13.4"
+  }
+}
