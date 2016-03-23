@@ -1,3 +1,5 @@
+<% include partials/header %>
+
 <h1>This is the recipes page.</h1>
 
 <a href="/">Home</a>
@@ -6,6 +8,7 @@
 	<h2><%=recipe.name%></h2>
 	<img src="<%=recipe.image%>">
 	<p><%=recipe.description%></p>
-	<hr>
-
+	
 <% }); %>
+
+<% include partials/footer %>
