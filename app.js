@@ -1,15 +1,16 @@
 var express 			= require("express"),
 	bodyParser 			= require('body-parser'),
-	mongoose 			= require('mongoose');
+	mongoose 			= require('mongoose'),
+	methodOverride 		= require('method-override');
 
 var app = express();
 
-
+//APP CONFIG
 mongoose.connect('mongodb://localhost/breakfast-rate');
-
-app.use(bodyParser.urlencoded({ extended: true }));	//tells express to use bodyParser
-
 app.set("view engine", "ejs");
+app.use(bodyParser.urlencoded({ extended: true }));	//tells express to use bodyParser
+app.use(methodOverride("_method"));
+
 
 
 // var recipes = [
@@ -27,7 +28,13 @@ app.set("view engine", "ejs");
 // 		name: "Perfect Bacon",
 // 		image: "https://farm7.staticflickr.com/6158/6175755733_b2932d7838.jpg",
 // 		description: "You can't go wrong with bacon, especially perfectly cooked bacon." 
+// 	}, 	
+//	{
+// 		name: "Granny's Pancakes",
+// 		image: "https://farm5.staticflickr.com/4109/5046208238_635eb77023.jpg",
+// 		description: "This recipe has been handed down for many generations. I hope you all enjoy them as much as I do." 
 // 	},
+
 // ];
 
 //MONGOOSE / MODEL CONFIG
@@ -118,6 +125,29 @@ app.get("/recipes/:id/", function(req,res){
 	});
 });
 
+//EDIT
+app.get("/recipes/:id/edit", function(req,res){
+	Recipe.findById(req.params.id, function(err, foundRecipe){
+		if(err){
+			console.log(err);
+			res.redirect("/recipes");
+		} else {
+			res.render("recipes/edit", {recipe:foundRecipe});
+		}
+	});
+});
+
+//UPDATE
+app.put("/recipes/:id", function(req,res){
+	Recipe.findByIdAndUpdate(req.params.id, req.body.recipe, function(err,updatedRecipe){
+		if(err){
+			console.log(err);
+			res.redirect("/recipes");
+		} else {
+			res.redirect("/recipes/" + req.params.id);
+		}
+	});
+});
 
 
 app.listen(process.env.PORT || 3000, function(){

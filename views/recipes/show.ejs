@@ -6,6 +6,8 @@
 <p>Added on <%=recipe.created.toDateString()%></p>
 <p><%=recipe.description%></p>
 
+<a href="/recipes/<%=recipe._id%>/edit">Edit</a>
+<br>
 <a href="/recipes">Go Back</a>
 
 <% include ../partials/footer %>
