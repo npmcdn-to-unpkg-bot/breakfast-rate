@@ -1,5 +1,9 @@
-var express = require("express");
+var express 			= require("express"),
+	bodyParser 			= require('body-parser');
+
 var app = express();
+
+app.use(bodyParser.urlencoded({ extended: true }));	//tells express to use bodyParser
 
 app.set("view engine", "ejs");
 
@@ -27,10 +31,39 @@ app.get("/", function(req,res){
 	res.render("landing");
 });
 
-//RECIPES
+/*====================
+	RECIPES
+====================*/
+
+//INDEX
 app.get("/recipes", function(req,res){
 	res.render("recipes", {recipes:recipes});
 });
+
+//NEW
+app.get("/recipes/new", function(req,res){
+	res.render("recipes/new");
+});
+
+//CREATE
+app.post("/recipes", function(req,res){
+	//get data from form and add to recipes array
+	var name = req.body.name;
+	var image = req.body.image;
+	var description = req.body.description;
+
+	var newRecipe = {
+		name: name,
+		image: image,
+		description: description
+	};
+
+	recipes.push(newRecipe);
+
+	//redirect back to recipes page
+	res.redirect("recipes");
+});
+
 
 app.listen(process.env.PORT || 3000, function(){
 	console.log('The Breakfast Rate server is running...');

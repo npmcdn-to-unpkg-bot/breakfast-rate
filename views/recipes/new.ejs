@@ -1,0 +1,27 @@
+<% include ../partials/header %>
+
+<h1>Add new recipe</h1>
+
+<form action="/recipes" method="POST">
+	
+	<div class="form-group">
+		<input type="text" name="name" placeholder="Name">
+	</div>
+
+	<div class="form-group">
+		<input type="text" name="image" placeholder="Image URL">
+	</div>
+
+	<div class="form-group">
+		<input type="text" name="description" placeholder="Description">
+	</div>
+	<div class="form-group">
+		<button>Add Recipe</button>
+	</div>
+</form>
+
+<a href="/recipes">Go back to recipes</a>
+
+
+
+<% include ../partials/footer %>
