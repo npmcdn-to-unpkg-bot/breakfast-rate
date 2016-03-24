@@ -1,13 +1,22 @@
 <% include ../partials/header %>
 
-
 <h1><%=recipe.name%></h1>
+
 <img src="<%=recipe.image%>">
+
 <p>Added on <%=recipe.created.toDateString()%></p>
+
 <p><%=recipe.description%></p>
 
 <a href="/recipes/<%=recipe._id%>/edit">Edit</a>
+
 <br>
+
+<!-- Delete -->
+<form action="/recipes/<%=recipe._id%>?_method=DELETE" method="POST">
+	<button>Delete</button>
+</form>
+
 <a href="/recipes">Go Back</a>
 
 <% include ../partials/footer %>

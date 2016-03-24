@@ -149,6 +149,18 @@ app.put("/recipes/:id", function(req,res){
 	});
 });
 
+//DESTROY
+app.delete("/recipes/:id", function(req,res){
+	Recipe.findByIdAndRemove(req.params.id, function(err){
+		if(err){
+			console.log(err);
+			res.redirect("/recipes");
+		} else {
+			res.redirect("/recipes");
+		}
+	});
+});
+
 
 app.listen(process.env.PORT || 3000, function(){
 	console.log('The Breakfast Rate server is running...');
