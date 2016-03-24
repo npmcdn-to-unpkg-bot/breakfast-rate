@@ -101,7 +101,19 @@ app.post("/recipes", function(req,res){
 			console.log(err);
 		} else {
 			//redirect back to recipes page
-			res.redirect("recipes");
+			res.redirect("/recipes");
+		}
+	});
+});
+
+//SHOW
+app.get("/recipes/:id/", function(req,res){
+	Recipe.findById(req.params.id, function(err, foundRecipe){
+		if(err){
+			console.log(err);
+			res.redirect("/recipes");
+		} else {
+			res.render("recipes/show", {recipe:foundRecipe});
 		}
 	});
 });
