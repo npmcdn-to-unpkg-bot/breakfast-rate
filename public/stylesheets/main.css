@@ -1,0 +1,44 @@
+body {
+
+
+    margin-top:80px;
+
+    height: 100%;
+    margin: 0;
+    margin-top:80px;
+    background-repeat: no-repeat;
+    
+
+}
+
+.navbar {
+	background: white;
+	border-bottom:1px solid #E571A0;
+	box-shadow: 0 0 10px rgba(0,0,0,0.1);
+	
+}
+
+.navbar-default .navbar-brand {
+	color:#E571A0;
+}
+
+.navbar-default .navbar-brand:hover {
+	color:#E571A0;
+}
+
+
+
+.navbar-default .navbar-nav>li>a {
+    color:#F9A45B;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+    color:#DD8234;
+}
+
+#sign-in {
+    border:2px solid #E571A0;
+    background:none;
+    color: #E571A0;
+    margin-left:5px;
+}
