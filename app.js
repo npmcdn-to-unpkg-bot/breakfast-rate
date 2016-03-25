@@ -31,9 +31,29 @@ app.use(methodOverride("_method"));
 // 		description: "You can't go wrong with bacon, especially perfectly cooked bacon." 
 // 	}, 	
 //	{
+// 		name: "Simple Scrambled Eggs",
+// 		image: "https://farm4.staticflickr.com/3006/2869980465_91333000bd.jpg",
+// 		description: "This recipe has been handed down for many generations. I hope you all enjoy them as much as I do." 
+// 	},
+//	{
 // 		name: "Granny's Pancakes",
 // 		image: "https://farm5.staticflickr.com/4109/5046208238_635eb77023.jpg",
-// 		description: "This recipe has been handed down for many generations. I hope you all enjoy them as much as I do." 
+// 		description: "I think many people struggle with something as scrambled eggs, so I thought I'd share how I make them. I've had no complaints so far. " 
+// 	},
+//	{
+// 		name: "Gluten Free Blueberry Muffins",
+// 		image: "https://farm6.staticflickr.com/5252/5512933256_60a28d3332.jpg",
+// 		description: "For those who are health conscious or have a gluten intolerance." 
+// 	},
+//	{
+// 		name: "Power Sandwich",
+// 		image: "https://farm9.staticflickr.com/8260/8643734101_43c59e43ee.jpg",
+// 		description: "Start off your day with this wonderful breakfast sandwich!" 
+// 	},
+//	{
+// 		name: "French Toast",
+// 		image: "https://farm5.staticflickr.com/4076/4894917666_877a294c39.jpg",
+// 		description: "Easy to make french toast." 
 // 	},
 
 // ];
