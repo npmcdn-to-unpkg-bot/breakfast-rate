@@ -22,11 +22,24 @@ body {
 
 .navbar-default .navbar-brand {
 	color:#E571A0;
+	font-family: 'Lobster', cursive;
+	font-size:25px;
+	text-shadow: -1px 0 black, 0 1px #BE2D68, 1px 0 #BE2D68, 0 -1px #BE2D68;
 }
 
 .navbar-default .navbar-brand:hover {
 	color:#E571A0;
 }
+
+.navbar-default .navbar-brand:active {
+	color:#E571A0;
+}
+
+.navbar-default .navbar-brand img {
+	height:35px;
+}
+
+
 
 
 
