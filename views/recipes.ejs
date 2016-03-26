@@ -17,12 +17,14 @@
 		
 		<% recipes.forEach(function(recipe){ %>
 			<div class="grid-item">
-				<div class="grid-item-inner">
+				
+				<a href="/recipes/<%=recipe._id%>" class="grid-item-inner">
 					<h2><%=recipe.name%></h2>
 					<img class="img-responsive " src="<%=recipe.image%>">
 					<p><%=recipe.description%></p>
-					<a href="/recipes/<%=recipe._id%>">Learn More</a>	
-				</div>
+					<!-- <a href="/recipes/<%=recipe._id%>">Learn More</a>	 -->
+				</a>
+
 			</div>
 	<% }); %>
 
