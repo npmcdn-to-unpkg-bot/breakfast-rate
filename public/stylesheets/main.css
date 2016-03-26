@@ -19,8 +19,8 @@ h1 {
 h2 {
 	font-family: 'Josefin Slab', serif;
 	margin:0;
-	color: #F9A55B;
-text-shadow: 1px 1px 1px rgba(0, 0, 0,0.3);
+	color: #F9D15B;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0,0.2);
 }
 
 
@@ -147,3 +147,41 @@ text-shadow: 1px 1px 1px rgba(0, 0, 0,0.3);
   padding:3px;
   margin-bottom:5px;
 }
+
+@media screen and (max-width: 991px) {
+	.grid-sizer,
+	.grid-item {
+		width: 33.33333333%;
+	}
+
+}
+
+@media screen and (max-width: 767px) {
+	.grid-sizer,
+	.grid-item {
+		width: 50%;
+	}
+
+	h2 {
+		font-size:22px;
+		text-shadow: none;
+	}
+
+}
+
+@media screen and (max-width: 400px) {
+
+	
+	
+	.grid-item-inner p {
+		display:none;
+	}
+
+	.grid-item img {
+  		margin-bottom:0;
+	}
+
+}
+
+
+
