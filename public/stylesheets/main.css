@@ -25,7 +25,9 @@ h2 {
 	font-size:25px;
 }
 
-
+/*===================
+	NAVBAR
+====================*/
 .navbar {
 	background: #fffefd;
 	border-bottom:1px solid #E571A0;
@@ -87,7 +89,9 @@ h2 {
 }
 
 
-
+/*===================
+	TILES IMAGES 
+====================*/
 
 
 /*MASONRY */
@@ -131,8 +135,6 @@ h2 {
 	color: inherit; 
 }
 
-
-
 .grid-item-inner {
 	display:block;
 	margin:10px;
@@ -157,6 +159,29 @@ h2 {
   padding:3px;
   margin-bottom:5px;
 }
+
+/*===================
+	RECIPES SHOW PAGE
+====================*/
+.recipe-show-container{
+	padding:20px;
+	background:white;
+	border: 1px solid black;
+	width:90%;
+	margin:0 auto;
+}
+
+
+.recipe-show-img {
+	display:block;
+	margin:0 auto;
+	max-width:90%;
+}
+
+
+/*===================
+	MEDIA QUERIES
+====================*/
 
 @media screen and (max-width: 991px) {
 	.grid-sizer,
