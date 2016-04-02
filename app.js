@@ -8,7 +8,7 @@ var app = express();
 //APP CONFIG
 mongoose.connect('mongodb://localhost/breakfast-rate');
 app.set("view engine", "ejs");
-app.use(express.static("public"));	//css
+app.use(express.static(__dirname + "/public"));	//css
 app.use(bodyParser.urlencoded({ extended: true }));	//tells express to use bodyParser
 app.use(methodOverride("_method"));
 
