@@ -14,6 +14,7 @@ color: #7c7c7c;
 
 h1 {
 	font-family: 'Raleway', sans-serif;
+	color: #E571A0;
 }
 
 h2 {
@@ -21,11 +22,12 @@ h2 {
 	margin:0;
 	color: #F9D15B;
 	text-shadow: 1px 1px 1px rgba(0, 0, 0,0.2);
+	font-size:25px;
 }
 
 
 .navbar {
-	background: white;
+	background: #fffefd;
 	border-bottom:1px solid #E571A0;
 	box-shadow: 0 0 10px rgba(0,0,0,0.1);
 	
@@ -50,10 +52,6 @@ h2 {
 	height:35px;
 }
 
-
-
-
-
 .navbar-default .navbar-nav>li>a {
     color:#F9A45B;
 }
@@ -62,6 +60,18 @@ h2 {
     color:#DD8234;
 }
 
+.navbar-default .navbar-toggle {
+	background:white;
+	border-color:#E571A0;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+	background: #E571A0;
+}
+
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+	background: #F9D15B;
+}
 
 
 #sign-in {
@@ -162,22 +172,32 @@ h2 {
 		width: 50%;
 	}
 
-	h2 {
-		font-size:22px;
-		text-shadow: none;
-	}
 
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 450px) {
 
-	
-	
+	h1 {
+		font-size:28px;
+	}
+
+	h2 {
+		font-size:20px;
+		text-shadow: none;
+	}
+
+	.grid-item-inner {
+		margin:5px;
+		padding:7.5px;
+	}
+
 	.grid-item-inner p {
 		display:none;
 	}
 
 	.grid-item img {
+		border:1px solid #d5cdc3;
+		padding:0px;
   		margin-bottom:0;
 	}
 
