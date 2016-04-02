@@ -1,9 +1,10 @@
 var express 			= require("express"),
+	app 				= express(),
 	bodyParser 			= require('body-parser'),
 	mongoose 			= require('mongoose'),
-	methodOverride 		= require('method-override');
-
-var app = express();
+	methodOverride 		= require('method-override'),
+	//Models
+	Recipe 				= require("./models/recipe");
 
 //APP CONFIG
 mongoose.connect('mongodb://localhost/breakfast-rate');
@@ -11,7 +12,6 @@ app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));	//css
 app.use(bodyParser.urlencoded({ extended: true }));	//tells express to use bodyParser
 app.use(methodOverride("_method"));
-
 
 
 // var recipes = [
@@ -59,14 +59,14 @@ app.use(methodOverride("_method"));
 // ];
 
 //MONGOOSE / MODEL CONFIG
-var recipeSchema = new mongoose.Schema({
-	name: String,
-	image: String,
-	description: String,
-	created: {type: Date, default: Date.now}
-});
+// var recipeSchema = new mongoose.Schema({
+// 	name: String,
+// 	image: String,
+// 	description: String,
+// 	created: {type: Date, default: Date.now}
+// });
 
-var Recipe = mongoose.model("Recipe", recipeSchema);
+// var Recipe = mongoose.model("Recipe", recipeSchema);
 
 // Recipe.create(
 // 	{
