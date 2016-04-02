@@ -4,8 +4,11 @@ var express 			= require("express"),
 	mongoose 			= require('mongoose'),
 	methodOverride 		= require('method-override'),
 	//Models
-	Recipe 				= require("./models/recipe");
+	Recipe 				= require("./models/recipe"),
+	//Seed file
+	seedDB				=require("./seeds");
 
+seedDB();
 //APP CONFIG
 mongoose.connect('mongodb://localhost/breakfast-rate');
 app.set("view engine", "ejs");
