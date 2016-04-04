@@ -34,7 +34,7 @@ app.get("/recipes", function(req,res){
 		if(err){
 			console.log(err);
 		} else {
-			res.render("recipes", {recipes:recipes});
+			res.render("recipes/index", {recipes:recipes});
 		}
 	});
 });
@@ -116,6 +116,9 @@ app.delete("/recipes/:id", function(req,res){
 		}
 	});
 });
+
+
+
 
 
 app.listen(process.env.PORT || 3000, function(){
