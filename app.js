@@ -50,6 +50,10 @@ app.post("/recipes", function(req,res){
 	var name = req.body.name;
 	var image = req.body.image;
 	var description = req.body.description;
+	//needed for firefox
+	if(req.body.image.length<1){
+		image = "/img/placeholder.svg";
+	}
 
 	var newRecipe = {
 		name: name,

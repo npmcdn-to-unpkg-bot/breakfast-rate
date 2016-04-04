@@ -9,7 +9,7 @@
 
 	<div class="recipe-show-container">
 
-		<img class = "recipe-show-img" src="<%=recipe.image%>">
+		<img class = "recipe-show-img" src="<%=recipe.image%>"onError="this.onerror=null;this.src='/img/placeholder.svg';">
 
 		<p>Added on <%=recipe.created.toDateString()%></p>
 

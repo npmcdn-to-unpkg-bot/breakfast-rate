@@ -20,7 +20,7 @@
 				
 				<a href="/recipes/<%=recipe._id%>" class="grid-item-inner">
 					<h2><%=recipe.name%></h2>
-					<img class="img-responsive " src="<%=recipe.image%>">
+					<img class="img-responsive " src="<%=recipe.image%>" onError="this.onerror=null;this.src='/img/placeholder.svg';">
 					<p><%=recipe.description%></p>
 					<!-- <a href="/recipes/<%=recipe._id%>">Learn More</a>	 -->
 				</a>
