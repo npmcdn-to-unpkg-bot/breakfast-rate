@@ -1,7 +1,8 @@
-var mongoose = require("mongoose");
-var Recipe = require("./models/recipe");
+var mongoose = require("mongoose"),
+	Recipe = require("./models/recipe"),
+	Comment = require("./models/comment");
 
-var data = [
+var recipeData = [
 	{
 		name: "Gluten Free Blueberry Muffins",
 		image: "https://farm6.staticflickr.com/5252/5512933256_60a28d3332.jpg",
@@ -67,7 +68,6 @@ var data = [
 		image: "https://farm8.staticflickr.com/7176/6963630107_d8400fe78a.jpg",
 		description: "I know this isn't really a food, but I thought this would be helpful because maple syrup is used for a lot of breakfast meals." 
 	},	
-
 ];
 
 function seedDB(){
@@ -78,12 +78,29 @@ function seedDB(){
 		} else {
 			console.log("removed recipes");
 			//add recipes
-			data.forEach(function(seed){
-				Recipe.create(seed,function(err,data){
+			recipeData.forEach(function(seed){
+				Recipe.create(seed,function(err,recipe){
 					if(err){
 						console.log(err);
 					} else {
 						console.log("Added recipe");
+						Comment.remove({});
+						//add comments
+                    Comment.create(
+                        {
+                            text: "This food is great, but I wish there was more flavor",
+                            author: "Bobby"
+                        }, function(err, comment){
+                            if(err){
+                                console.log(err);
+                            } else {
+                                recipe.comments.push(comment);
+                                recipe.save();
+                                console.log("Created new comment");
+                            }
+                        });
+
+                	
 					}
 				});
 			});
