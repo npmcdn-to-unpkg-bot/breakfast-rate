@@ -117,7 +117,42 @@ app.delete("/recipes/:id", function(req,res){
 	});
 });
 
+/*====================
+	COMMENTS
+====================*/
 
+//NEW
+app.get("/recipes/:id/comments/new", function(req,res){
+	Recipe.findById(req.params.id, function(err, recipe){
+		if(err){
+			console.log(err);
+			res.redirect("back");
+		} else {
+			res.render("comments/new", {recipe: recipe});
+		}
+	});
+});
+
+//CREATE
+app.post("/recipes/:id/comments", function(req, res){
+	Recipe.findById(req.params.id, function(err, recipe){
+		if(err){
+			console.log(err);
+			res.redirect("/recipes/"+recipe._id);
+		} else {
+			console.log(req.body.comment);
+			Comment.create(req.body.comment, function(err, comment){
+				if(err){
+					console.log(err);
+				} else {
+					recipe.comments.push(comment);
+					recipe.save();
+					res.redirect("/recipes/" +recipe._id);
+				}
+			});
+		}
+	});
+});
 
 
 
