@@ -50,6 +50,8 @@ app.post("/recipes", function(req,res){
 	var name = req.body.name;
 	var image = req.body.image;
 	var description = req.body.description;
+	var ingredientList = req.body.ingredients;
+	var ingredients = ingredientList.split(";");
 	//needed for firefox
 	if(req.body.image.length<1){
 		image = "/img/placeholder.svg";
@@ -58,7 +60,8 @@ app.post("/recipes", function(req,res){
 	var newRecipe = {
 		name: name,
 		image: image,
-		description: description
+		description: description,
+		ingredients: ingredients,
 	};
 
 	//create new recipe and save to database
@@ -99,7 +102,21 @@ app.get("/recipes/:id/edit", function(req,res){
 
 //UPDATE
 app.put("/recipes/:id", function(req,res){
-	Recipe.findByIdAndUpdate(req.params.id, req.body.recipe, function(err,updatedRecipe){
+	var name = req.body.recipe.name;
+	var image = req.body.recipe.image;
+	var description = req.body.recipe.description;
+	var ingredientList = req.body.recipe.ingredients;
+	var ingredients = ingredientList.split(";");
+
+
+	var editedRecipe = {
+		name: name,
+		image: image,
+		description: description,
+		ingredients: ingredients,
+	};
+
+	Recipe.findByIdAndUpdate(req.params.id, editedRecipe, function(err,updatedRecipe){
 		if(err){
 			console.log(err);
 			res.redirect("/recipes");

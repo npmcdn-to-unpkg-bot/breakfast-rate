@@ -16,6 +16,9 @@
 		<input type="text" name="recipe[description]" placeholder="Description" value="<%=recipe.description%>">
 	</div>
 	<div class="form-group">
+		<input type="text" name="recipe[ingredients]" placeholder="Ingredients, seperate by semi-colon (;)" value="<%=recipe.ingredients.join(";")%>">
+	</div>
+	<div class="form-group">
 		<button>Edit</button>
 	</div>
 </form>
