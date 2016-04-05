@@ -1,28 +1,38 @@
 <% include ../partials/header %>
 
-<h1>Edit <%=recipe.name%></h1>
+<div class="container">
+	<div style="width:30%; margin:25px auto">	
 
-<form action="/recipes/<%=recipe._id%>?_method=PUT" method="POST">
-	
-	<div class="form-group">
-		<input type="text" name="recipe[name]" placeholder="Name" value="<%=recipe.name%>">
-	</div>
+		<h1>Edit <%=recipe.name%></h1>
 
-	<div class="form-group">
-		<input type="text" name="recipe[image]" placeholder="Image URL" value="<%=recipe.image%>">
-	</div>
+		<form action="/recipes/<%=recipe._id%>?_method=PUT" method="POST">
+			
+			<div class="form-group">
+				<label>Recipe Name:</label>
+				<input type="text" name="recipe[name]" placeholder="Name" value="<%=recipe.name%>" class="form-control">
+			</div>
 
-	<div class="form-group">
-		<input type="text" name="recipe[description]" placeholder="Description" value="<%=recipe.description%>">
-	</div>
-	<div class="form-group">
-		<input type="text" name="recipe[ingredients]" placeholder="Ingredients, seperate by semi-colon (;)" value="<%=recipe.ingredients.join(";")%>">
-	</div>
-	<div class="form-group">
-		<button>Edit</button>
-	</div>
-</form>
+			<div class="form-group">
+				<label>Image URL:</label>
+				<input type="text" name="recipe[image]" placeholder="Image URL" value="<%=recipe.image%>" class="form-control">
+			</div>
 
-<a href="/recipes/<%=recipe._id%>">Go back</a>
+			<div class="form-group">
+				<label>Description:</label>
+				<input type="text" name="recipe[description]" placeholder="Description" value="<%=recipe.description%>" class="form-control">
+			</div>
+			<div class="form-group">
+				<label>Ingredients (separate by semi-colon):</label>
+				<textarea class="form-control" rows="5" name="recipe[ingredients]" class="form-control"><%=recipe.ingredients.join(";")%></textarea>
+			</div>
+			<div class="form-group">
+				<button class="btn btn-warning">Update</button>
+			</div>
+		</form>
+
+		<a href="/recipes/<%=recipe._id%>">Go back</a>
+
+	</div>
+</div>
 
 <% include ../partials/footer %>

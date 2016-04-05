@@ -1,30 +1,40 @@
 <% include ../partials/header %>
 
-<h1>Add new recipe</h1>
+<div class="container">
+	<div style="width:30%; margin:25px auto">	
+		
+		<h1>Add new recipe</h1>
+		
+		<form action="/recipes" method="POST">
+			
+			<div class="form-group">
+				<label>Recipe Name:</label>
+				<input type="text" name="name" placeholder="Recipe Name" class="form-control">
+			</div>
 
-<form action="/recipes" method="POST">
-	
-	<div class="form-group">
-		<input type="text" name="name" placeholder="Name">
+			<div class="form-group">
+				<label>Image URL:</label>
+				<input type="text" name="image" placeholder="Image URL" class="form-control">
+			</div>
+
+			<div class="form-group">
+				<label>Description:</label>
+				<input type="text" name="description" placeholder="Description" class="form-control">
+			</div>
+			<div class="form-group">
+				<label>Ingredients (separate by semi-colon):</label>
+				<textarea name="ingredients" class="form-control" rows="5" id="comment" placeholder="Example: 1/2 cups flour; 1 cup milk; 3 eggs"></textarea>
+
+				<!-- Ingredients, separate by semi-colon" -->
+			</div>
+			<div class="form-group">
+				<button class="btn btn-warning">Add Recipe</button>
+			</div>
+		</form>
+
+		<a href="/recipes">Go back to recipes</a>
+
 	</div>
-
-	<div class="form-group">
-		<input type="text" name="image" placeholder="Image URL">
-	</div>
-
-	<div class="form-group">
-		<input type="text" name="description" placeholder="Description">
-	</div>
-	<div class="form-group">
-		<input type="text" name="ingredients" placeholder="Ingredients, seperate by semi-colon (;)">
-	</div>
-	<div class="form-group">
-		<button>Add Recipe</button>
-	</div>
-</form>
-
-<a href="/recipes">Go back to recipes</a>
-
-
+</div>
 
 <% include ../partials/footer %>
