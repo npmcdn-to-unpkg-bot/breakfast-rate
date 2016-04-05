@@ -4,8 +4,10 @@
 
 
 <div class="container">
-	
 	<h1><%=recipe.name%></h1>
+	<% if(recipe.source.length>3){ %>
+	<p><em>Recipe found from: <a href="<%=recipe.source%>"><%=recipe.source%></a></em></p>
+	<% } %>
 
 	<div class="recipe-show-container">
 
