@@ -12,7 +12,8 @@ var recipeSchema = new mongoose.Schema({
 		}
 	],
 	ingredients: [],
-	source: {type: String, default:""}
+	instructions: [],
+	source: {type: String, default:""},
 });
 
 var Recipe = mongoose.model("Recipe", recipeSchema);

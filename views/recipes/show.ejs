@@ -23,6 +23,13 @@
 				<li><%=ingredient%></li>
 			<% }) %>
 		</ul>
+
+		<h2>Instructions</h2>
+		<ol>
+			<% recipe.instructions.forEach(function(instruction){ %>
+				<li><%=instruction%></li>
+			<% }) %>
+		</ol>
 		
 		<h2>Comments</h2>
 		

@@ -52,6 +52,7 @@ app.post("/recipes", function(req,res){
 	var description = req.body.description;
 	var ingredientList = req.body.ingredients;
 	var ingredients = ingredientList.split(";");
+	var instructions = req.body.instructions;
 	//needed for firefox
 	if(req.body.image.length<1){
 		image = "/img/placeholder.svg";
@@ -62,7 +63,9 @@ app.post("/recipes", function(req,res){
 		image: image,
 		description: description,
 		ingredients: ingredients,
+		instructions: instructions,
 	};
+
 
 	//create new recipe and save to database
 	Recipe.create(newRecipe, function(err, createdRecipe){

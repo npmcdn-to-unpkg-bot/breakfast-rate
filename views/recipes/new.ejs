@@ -23,10 +23,20 @@
 			</div>
 			<div class="form-group">
 				<label>Ingredients (separate by semi-colon):</label>
-				<textarea name="ingredients" class="form-control" rows="5" id="comment" placeholder="Example: 1/2 cups flour; 1 cup milk; 3 eggs"></textarea>
-
-				<!-- Ingredients, separate by semi-colon" -->
+				<textarea name="ingredients" class="form-control" rows="5" placeholder="Example: 1/2 cups flour; 1 cup milk; 3 eggs"></textarea>
 			</div>
+
+			<div class="form-group">
+				<label>Instructions:</label>
+				
+				<div id="instructionHolder">
+					<textarea name="instructions" class="form-control" rows="3"></textarea>
+					<textarea name="instructions" class="form-control" rows="3"></textarea>
+				</div>
+				<h3 id="addInstruction">Click to add another instruction</h3>
+			</div>
+
+
 			<div class="form-group">
 				<button class="btn btn-warning">Add Recipe</button>
 			</div>
