@@ -109,6 +109,13 @@ var recipeData = [
 ];
 
 function seedDB(){
+
+	//remvoe comments
+	Comment.remove({}, function(err){
+		if(err){
+			console.log(err);
+		}
+	});
 	//remove recipes
 	Recipe.remove({}, function(err){
 		if (err){
@@ -122,7 +129,6 @@ function seedDB(){
 						console.log(err);
 					} else {
 						console.log("Added recipe");
-						Comment.remove({});
 						//add comments
                     Comment.create(
                         {
