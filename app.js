@@ -50,8 +50,7 @@ app.post("/recipes", function(req,res){
 	var name = req.body.name;
 	var image = req.body.image;
 	var description = req.body.description;
-	var ingredientList = req.body.ingredients;
-	var ingredients = ingredientList.split(";");
+	var ingredients = req.body.ingredients;
 	var instructions = req.body.instructions;
 	//needed for firefox
 	if(req.body.image.length<1){
@@ -108,8 +107,7 @@ app.put("/recipes/:id", function(req,res){
 	var name = req.body.recipe.name;
 	var image = req.body.recipe.image;
 	var description = req.body.recipe.description;
-	var ingredientList = req.body.recipe.ingredients;
-	var ingredients = ingredientList.split(";");
+	var ingredients = req.body.ingredients;
 	var instructions = req.body.instructions;
 
 	var editedRecipe = {

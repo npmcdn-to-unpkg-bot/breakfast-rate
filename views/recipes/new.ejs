@@ -21,9 +21,18 @@
 				<label>Description:</label>
 				<input type="text" name="description" placeholder="Description" class="form-control">
 			</div>
+			
 			<div class="form-group">
-				<label>Ingredients (separate by semi-colon):</label>
-				<textarea name="ingredients" class="form-control" rows="5" placeholder="Example: 1/2 cups flour; 1 cup milk; 3 eggs"></textarea>
+				<label>Ingredients:</label>
+					
+					<div id = "ingredientHolder">
+						<div class="input-group">
+  							<input type="text" name="ingredients" class="form-control">
+  							<span class="input-group-addon delete-form">X</span>
+						</div>
+					</div>
+						
+				<button type="button" id="addIngredient">Add Ingredient</button> 
 			</div>
 
 			<div class="form-group">
@@ -37,7 +46,7 @@
 						</li>
 					</ol>
 				</div>
-				<h3 id="addInstruction">Click to add another instruction</h3>
+				<button type="button" id="addInstruction">Click to add another instruction</button>
 			</div>
 
 
