@@ -110,13 +110,14 @@ app.put("/recipes/:id", function(req,res){
 	var description = req.body.recipe.description;
 	var ingredientList = req.body.recipe.ingredients;
 	var ingredients = ingredientList.split(";");
-
+	var instructions = req.body.instructions;
 
 	var editedRecipe = {
 		name: name,
 		image: image,
 		description: description,
 		ingredients: ingredients,
+		instructions: instructions
 	};
 
 	Recipe.findByIdAndUpdate(req.params.id, editedRecipe, function(err,updatedRecipe){
@@ -125,6 +126,7 @@ app.put("/recipes/:id", function(req,res){
 			res.redirect("/recipes");
 		} else {
 			res.redirect("/recipes/" + req.params.id);
+			console.log(instructions);
 		}
 	});
 });

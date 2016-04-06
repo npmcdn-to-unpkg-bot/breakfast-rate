@@ -21,13 +21,38 @@
 				<label>Description:</label>
 				<input type="text" name="recipe[description]" placeholder="Description" value="<%=recipe.description%>" class="form-control">
 			</div>
+
 			<div class="form-group">
 				<label>Ingredients (separate by semi-colon):</label>
 				<textarea class="form-control" rows="5" name="recipe[ingredients]" class="form-control"><%=recipe.ingredients.join(";")%></textarea>
 			</div>
+
+			<div class="form-group">
+				<label>Instructions:</label>
+				
+				<div id="instructionHolder">
+					<ol>
+						<li>
+							Step <span class="step"></span>	
+							<textarea name="instructions" class="form-control" rows="3"><%=recipe.instructions[0]%></textarea>			
+						</li>
+						
+						<% for(i=1; i<recipe.instructions.length; i++){ %>
+							<li>
+								Step <span class="step"></span>
+								<textarea name="instructions" class="form-control" rows="3"><%=recipe.instructions[i]%></textarea>
+								<span class="delete-instruction">X</span>
+							</li>
+						<% } %>
+					</ol>
+				</div>
+				<h3 id="addInstruction">Click to add another instruction</h3>
+			</div>
+
 			<div class="form-group">
 				<button class="btn btn-warning">Update</button>
 			</div>
+
 		</form>
 
 		<a href="/recipes/<%=recipe._id%>">Go back</a>
