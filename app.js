@@ -50,6 +50,9 @@ app.post("/recipes", function(req,res){
 	var name = req.body.name;
 	var image = req.body.image;
 	var description = req.body.description;
+	var servings = req.body.servings;
+	var prepTime = req.body.prepTime;
+	var cookTime = req.body.cookTime;
 	var ingredients = req.body.ingredients;
 	var instructions = req.body.instructions;
 	//needed for firefox
@@ -61,6 +64,9 @@ app.post("/recipes", function(req,res){
 		name: name,
 		image: image,
 		description: description,
+		servings: servings,
+		prepTime: prepTime,
+		cookTime: cookTime,
 		ingredients: ingredients,
 		instructions: instructions,
 	};
@@ -107,6 +113,9 @@ app.put("/recipes/:id", function(req,res){
 	var name = req.body.recipe.name;
 	var image = req.body.recipe.image;
 	var description = req.body.recipe.description;
+	var servings = req.body.servings;
+	var prepTime = req.body.prepTime;
+	var cookTime = req.body.cookTime;
 	var ingredients = req.body.ingredients;
 	var instructions = req.body.instructions;
 
@@ -114,8 +123,11 @@ app.put("/recipes/:id", function(req,res){
 		name: name,
 		image: image,
 		description: description,
+		servings: servings,
+		prepTime: prepTime,
+		cookTime: cookTime,
 		ingredients: ingredients,
-		instructions: instructions
+		instructions: instructions,
 	};
 
 	Recipe.findByIdAndUpdate(req.params.id, editedRecipe, function(err,updatedRecipe){

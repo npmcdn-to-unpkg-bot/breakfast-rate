@@ -2,18 +2,21 @@ var mongoose 	= require("mongoose");
 
 var recipeSchema = new mongoose.Schema({
 	name: String,
+	created: {type: Date, default: Date.now},
 	image: String,
 	description: String,
-	created: {type: Date, default: Date.now},
+	servings: String,
+	prepTime: String,
+	cookTime: String,
+	ingredients: [],
+	instructions: [],
+	source: {type: String, default:""},
 	comments: [
 		{
 			type: mongoose.Schema.Types.ObjectId,
 			ref: "Comment"
 		}
 	],
-	ingredients: [],
-	instructions: [],
-	source: {type: String, default:""},
 });
 
 var Recipe = mongoose.model("Recipe", recipeSchema);
