@@ -90,8 +90,14 @@ app.get("/recipes/:id/", function(req,res){
 			console.log(err);
 			res.redirect("/recipes");
 		} else {
-			console.log(foundRecipe);
-			res.render("recipes/show", {recipe:foundRecipe});
+			Recipe.find({}, function(err,otherrecipes){
+				if(err){
+					console.log(err);
+				} else {
+					res.render("recipes/show", {recipe:foundRecipe, otherrecipes:otherrecipes});
+				}
+			});
+
 		}
 	});
 });

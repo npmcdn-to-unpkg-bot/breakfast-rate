@@ -3,37 +3,62 @@
 
 
 
-<div class="container">
-	<h1><%=recipe.name%></h1>
-	<% if(recipe.source.length>3){ %>
-	<p><em>Recipe found from: <a href="<%=recipe.source%>"><%=recipe.source%></a></em></p>
-	<% } %>
+<div class="container recipe-show-container">
 
-	<div class="recipe-show-container">
 
-		<img class = "recipe-show-img" src="<%=recipe.image%>"onError="this.onerror=null;this.src='/img/placeholder.svg';">
+	
 
-		<p>Added on <%=recipe.created.toDateString()%></p>
+		<div class="row">
+	
+			<div class="col-md-4">
+					<h1><%=recipe.name%></h1>
+					
+					<% if(recipe.source.length>3){ %>
+						<p><em>Recipe found from: <a href="<%=recipe.source%>"><%=recipe.source%></a></em></p>
+					<% } %>
 
-		<p><%=recipe.description%></p>
+					<p><%=recipe.description%></p>
 
-		<strong>Yield: </strong><%=recipe.servings%> servings
-		<br><strong>Prep Time: </strong><%=recipe.prepTime%> minutes
-		<br><strong> Cook Time: </strong><%=recipe.cookTime%> minutes
+					<strong>Yield: </strong><%=recipe.servings%> servings
+					<strong>Prep Time: </strong><%=recipe.prepTime%> minutes
+					<strong> Cook Time: </strong><%=recipe.cookTime%> minutes
+			</div>
+
+			<div class="col-md-8">
+				<img class = "recipe-show-img" src="<%=recipe.image%>"onError="this.onerror=null;this.src='/img/placeholder.svg';">
+			</div>
+
+		</div>
 		
-		<h2>Ingredients</h2>
-		<ul>
-			<% recipe.ingredients.forEach(function(ingredient){ %>
-				<li><%=ingredient%></li>
-			<% }) %>
-		</ul>
 
-		<h2>Instructions</h2>
-		<ol>
-			<% recipe.instructions.forEach(function(instruction){ %>
-				<li><%=instruction%></li>
-			<% }) %>
-		</ol>
+		
+
+		<!-- <p>Added on <%=recipe.created.toDateString()%></p> -->
+
+		<div class="row">
+			<div class="col-md-4">
+				<h2>Ingredients</h2>
+				<ul>
+					<% recipe.ingredients.forEach(function(ingredient){ %>
+						<li><%=ingredient%></li>
+					<% }) %>
+				</ul>
+			</div>
+
+			<div class="col-md-8">
+				<h2>Instructions</h2>
+				<ol>
+					<% recipe.instructions.forEach(function(instruction){ %>
+						<li><%=instruction%></li>
+					<% }) %>
+				</ol>
+			</div>
+		</div>
+
+
+
+
+
 		
 		<h2>Comments</h2>
 		
@@ -56,8 +81,44 @@
 	</div>
 
 </div>
+	
+	<% var array = [];%>
+	<% for(i=0; i<3;i++){ %>
+			<% x = Math.floor((Math.random() * otherrecipes.length) + 0); %>
+			<%console.log(x)%>
+			<h1><%=otherrecipes[x].name%></h1>
+			<img class="img-responsive " src="<%=otherrecipes[x].image%>" onError="this.onerror=null;this.src='/img/placeholder.svg';">
+			<%console.log("******"+ otherrecipes[i]._id)%>
+			
+	<% }; %>
+
+	<% var x; var y;
+
+	x = otherrecipes[3];
+	console.log(recipe);
+	var a = otherrecipes.indexOf(recipe._id);
+	console.log("location = " +a);
+	console.log("-----------")
+	console.log(recipe._id);
+
+	%>
+
+
+
+<%function findWithAttr(array, attr, value) {
+    for(var i = 0; i < array.length; i ++) {
+        if(array[i].attr === value) {
+            return i;
+        }
+    }
+}%>
+
+<%var xyz = findWithAttr(otherrecipes, 'name', "1234");%>
+<%console.log(xyz)%>
 
 
 
 <% include ../partials/footer %>
 
+<!-- //http://stackoverflow.com/questions/7176908/how-to-get-index-of-object-by-its-property-in-javascript
+ -->

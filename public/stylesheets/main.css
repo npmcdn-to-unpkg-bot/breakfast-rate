@@ -164,18 +164,21 @@ h2 {
 	RECIPES SHOW PAGE
 ====================*/
 .recipe-show-container{
-	padding:20px;
-	background:white;
-	border: 1px solid black;
-	width:90%;
-	margin:0 auto;
+	
+	font-size:16.5px;
+
+	
 }
 
 
 .recipe-show-img {
 	display:block;
-	margin:0 auto;
-	max-width:90%;
+	/*margin:0 auto;*/
+	max-width:100%;
+	max-height:325px;
+  	border:1px solid #d5cdc3;
+  	padding:3px;
+  	margin-bottom:5px;
 }
 
 
