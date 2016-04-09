@@ -21,7 +21,6 @@ h2 {
 	font-family: 'Josefin Slab', serif;
 	margin:0;
 	color: #F9D15B;
-	text-shadow: 1px 1px 1px rgba(0, 0, 0,0.2);
 	font-size:25px;
 }
 
@@ -163,11 +162,26 @@ h2 {
 /*===================
 	RECIPES SHOW PAGE
 ====================*/
-.recipe-show-container{
+#recipe-show-container{
 	
 	font-size:16.5px;
 
-	
+}
+
+#recipe-show-container h2 {
+	color:#7c7c7c;
+}
+
+.recipe-container {
+	display:block;
+
+	border:1px solid #d5cdc3;
+	background:white;
+	padding:10px;
+	margin-bottom:10px;
+	-webkit-box-shadow: 0px 0px 2px 2px rgba(171,157,137,0.23);
+	-moz-box-shadow: 0px 0px 2px 2px rgba(171,157,137,0.23);
+	box-shadow: 0px 0px 2px 2px rgba(171,157,137,0.23);
 }
 
 
@@ -179,6 +193,29 @@ h2 {
   	border:1px solid #d5cdc3;
   	padding:3px;
   	margin-bottom:5px;
+}
+section {
+	margin:0;
+}
+#sidebar {
+	min-height:500px;
+	margin:0;
+}
+
+#sidebar h3 {
+	margin-top:0;
+	color:#E571A0;
+}
+
+#sidebar h4 {
+	font-family: 'Josefin Slab', serif;
+	margin:0;
+	color: #F9D15B;
+	font-size:25px;
+}
+
+#sidebar .recipe-container {
+	max-width:450px;
 }
 
 

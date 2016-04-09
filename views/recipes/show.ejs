@@ -3,13 +3,14 @@
 
 
 
-<div class="container recipe-show-container">
-
+<div class="container">
+<h1><%=recipe.name%></h1>
+		
+	<main id="recipe-show-container" class="col-md-9 recipe-container">
 		<div class="row">
 	
 			
-			<div class="col-md-4">
-					<h1><%=recipe.name%></h1>
+			<div class="col-md-5">
 					
 					<% if(recipe.source.length>3){ %>
 						<p><em>Recipe found from: <a href="<%=recipe.source%>"><%=recipe.source%></a></em></p>
@@ -22,13 +23,11 @@
 					<strong> Cook Time: </strong><%=recipe.cookTime%> minutes
 			</div>
 
-			<div class="col-md-8">
+			<div class="col-md-7">
 				<img class = "recipe-show-img" src="<%=recipe.image%>"onError="this.onerror=null;this.src='/img/placeholder.svg';">
 			</div>
 
 		</div>
-		
-
 		
 
 		<!-- <p>Added on <%=recipe.created.toDateString()%></p> -->
@@ -53,70 +52,75 @@
 			</div>
 		</div>
 
-
-
-
-
-		
-		<h2>Comments</h2>
-		
-		<% recipe.comments.forEach(function(comment){ %>
-			<p><strong><%=comment.author%></strong>: <%=comment.text%></p>
-		<% }) %>
-
-		<a class="btn btn-warning" href="/recipes/<%=recipe._id%>/comments/new">Add New Comment</a>
-
-		<a class="btn btn-success" href="/recipes/<%=recipe._id%>/edit">Edit</a>
-		<br><br>
-
-		<!-- Delete -->
-		<form action="/recipes/<%=recipe._id%>?_method=DELETE" method="POST">
-			<button class="btn btn-danger pull right">Delete</button>
-		</form>
-
-		<a href="/recipes">Go Back</a>
-
-	</div>
-
-</div>
-
-<!-- function found at //http://stackoverflow.com/questions/7176908/how-to-get-index-of-object-by-its-property-in-javascript-->
-<%function findWithAttr(array, attr, value) {
-    for(var i = 0; i < array.length; i ++) {
-        if(array[i][attr] == value) {
-            return i;
-        }
-    }
-}%>
-
-<!-- this array will contain the locations of all the recipes displayed on the page -->
-<% var locationArray = [];%>
-
-<%var recipeID = recipe._id.toString()%>
-
-<%var recipeLocation = findWithAttr(otherrecipes, '_id', recipeID);%>
-
-<%locationArray.push(recipeLocation);%>
-
-<%var num = 0; %>
-
-<div class="container" style="background:white; border: 1px solid gray">
-	<h3>Other Recipes</h3>
-	<% while(num<3){ %>
-			<% x = Math.floor((Math.random() * otherrecipes.length) + 0); %>
-			<% if(locationArray.indexOf(x)=== -1){ %>
-				<% locationArray.push(x);%>	
+		<div class="row">
+			<div class="col-xs-12">
+				<h2>Comments</h2>
 				
-				<div class="col-md-4">
-					<h4><%=otherrecipes[x].name%></h4>
-					<img class="img-responsive " src="<%=otherrecipes[x].image%>" onError="this.onerror=null;this.src='/img/placeholder.svg';">
-				</div>
-				<%num++;%>
-			<%} %>
-	<% }; %>
-</div>
+				<% recipe.comments.forEach(function(comment){ %>
+					<p><strong><%=comment.author%></strong>: <%=comment.text%></p>
+				<% }) %>
+
+				<a class="btn btn-warning" href="/recipes/<%=recipe._id%>/comments/new">Add New Comment</a>
+
+				<a class="btn btn-success" href="/recipes/<%=recipe._id%>/edit">Edit</a>
+				<br><br>
+
+				<!-- Delete -->
+				<form action="/recipes/<%=recipe._id%>?_method=DELETE" method="POST">
+					<button class="btn btn-danger pull right">Delete</button>
+				</form>
+
+				<a href="/recipes">Go Back</a>
+			</div>
+		</div>
+
+	</main>
+
+	<section id="sidebar" class="col-md-3">
+
+		<!-- function found at //http://stackoverflow.com/questions/7176908/how-to-get-index-of-object-by-its-property-in-javascript-->
+		<%function findWithAttr(array, attr, value) {
+		    for(var i = 0; i < array.length; i ++) {
+		        if(array[i][attr] == value) {
+		            return i;
+		        }
+		    }
+		}%>
+
+		<!-- this array will contain the locations of all the recipes displayed on the page -->
+		<% var locationArray = [];%>
+
+		<%var recipeID = recipe._id.toString()%>
+
+		<%var recipeLocation = findWithAttr(otherrecipes, '_id', recipeID);%>
+
+		<%locationArray.push(recipeLocation);%>
+
+		<%var num = 0; %>
+
+		
+			<h3>Other Recipes</h3>
+			<% while(num<4){ %>
+					<% x = Math.floor((Math.random() * otherrecipes.length) + 0); %>
+					<% if(locationArray.indexOf(x)=== -1){ %>
+						<% locationArray.push(x);%>	
+						
+						<div class="">
+							<div class="recipe-container">
+								<h4><%=otherrecipes[x].name%></h4>
+								<img class="img-responsive " src="<%=otherrecipes[x].image%>" onError="this.onerror=null;this.src='/img/placeholder.svg';">	
+							</div>
+						</div>
+						<%num++;%>
+					<%} %>
+			<% }; %>
+		
+
+	</section>
 
 
+
+</div> <!-- /container -->
 
 
 
