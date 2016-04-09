@@ -5,11 +5,9 @@
 
 <div class="container recipe-show-container">
 
-
-	
-
 		<div class="row">
 	
+			
 			<div class="col-md-4">
 					<h1><%=recipe.name%></h1>
 					
@@ -81,44 +79,47 @@
 	</div>
 
 </div>
-	
-	<% var array = [];%>
-	<% for(i=0; i<3;i++){ %>
-			<% x = Math.floor((Math.random() * otherrecipes.length) + 0); %>
-			<%console.log(x)%>
-			<h1><%=otherrecipes[x].name%></h1>
-			<img class="img-responsive " src="<%=otherrecipes[x].image%>" onError="this.onerror=null;this.src='/img/placeholder.svg';">
-			<%console.log("******"+ otherrecipes[i]._id)%>
-			
-	<% }; %>
 
-	<% var x; var y;
-
-	x = otherrecipes[3];
-	console.log(recipe);
-	var a = otherrecipes.indexOf(recipe._id);
-	console.log("location = " +a);
-	console.log("-----------")
-	console.log(recipe._id);
-
-	%>
-
-
-
+<!-- function found at //http://stackoverflow.com/questions/7176908/how-to-get-index-of-object-by-its-property-in-javascript-->
 <%function findWithAttr(array, attr, value) {
     for(var i = 0; i < array.length; i ++) {
-        if(array[i].attr === value) {
+        if(array[i][attr] == value) {
             return i;
         }
     }
 }%>
 
-<%var xyz = findWithAttr(otherrecipes, 'name', "1234");%>
-<%console.log(xyz)%>
+<!-- this array will contain the locations of all the recipes displayed on the page -->
+<% var locationArray = [];%>
+
+<%var recipeID = recipe._id.toString()%>
+
+<%var recipeLocation = findWithAttr(otherrecipes, '_id', recipeID);%>
+
+<%locationArray.push(recipeLocation);%>
+
+<%var num = 0; %>
+
+<div class="container" style="background:white; border: 1px solid gray">
+	<h3>Other Recipes</h3>
+	<% while(num<3){ %>
+			<% x = Math.floor((Math.random() * otherrecipes.length) + 0); %>
+			<% if(locationArray.indexOf(x)=== -1){ %>
+				<% locationArray.push(x);%>	
+				
+				<div class="col-md-4">
+					<h4><%=otherrecipes[x].name%></h4>
+					<img class="img-responsive " src="<%=otherrecipes[x].image%>" onError="this.onerror=null;this.src='/img/placeholder.svg';">
+				</div>
+				<%num++;%>
+			<%} %>
+	<% }; %>
+</div>
+
+
+
 
 
 
 <% include ../partials/footer %>
 
-<!-- //http://stackoverflow.com/questions/7176908/how-to-get-index-of-object-by-its-property-in-javascript
- -->
