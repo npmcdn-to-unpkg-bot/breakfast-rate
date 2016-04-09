@@ -8,6 +8,18 @@ $grid.imagesLoaded().progress( function() {
   $grid.masonry();
 });  
 
+
+//SHOW PAGE
+var $grid2 = $('.other-recipes-grid').masonry({
+  itemSelector: '.other-recipes-grid-item',
+  percentPosition: true,
+  columnWidth: '.other-recipes-grid-sizer'
+});
+// layout Isotope after each image loads
+$grid2.imagesLoaded().progress( function() {
+  $grid2.masonry();
+});    
+
 /*====================
 	NEW RECIPE FORM
 ====================*/

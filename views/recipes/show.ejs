@@ -10,7 +10,7 @@
 		<div class="row">
 	
 			
-			<div class="col-md-5">
+			<div class="col-md-6">
 					
 					<% if(recipe.source.length>3){ %>
 						<p><em>Recipe found from: <a href="<%=recipe.source%>"><%=recipe.source%></a></em></p>
@@ -23,7 +23,7 @@
 					<strong> Cook Time: </strong><%=recipe.cookTime%> minutes
 			</div>
 
-			<div class="col-md-7">
+			<div class="col-md-6">
 				<img class = "recipe-show-img" src="<%=recipe.image%>"onError="this.onerror=null;this.src='/img/placeholder.svg';">
 			</div>
 
@@ -100,20 +100,24 @@
 
 		
 			<h3>Other Recipes</h3>
+			<div class="other-recipes-grid">
+			<div class="other-recipes-grid-sizer"></div>
 			<% while(num<4){ %>
 					<% x = Math.floor((Math.random() * otherrecipes.length) + 0); %>
 					<% if(locationArray.indexOf(x)=== -1){ %>
 						<% locationArray.push(x);%>	
 						
-						<div class="">
-							<div class="recipe-container">
+						<div class="other-recipes-grid-item">
+							<a href="/recipes/<%=otherrecipes[x]._id%>" class="recipe-container">
 								<h4><%=otherrecipes[x].name%></h4>
 								<img class="img-responsive " src="<%=otherrecipes[x].image%>" onError="this.onerror=null;this.src='/img/placeholder.svg';">	
-							</div>
+								
+							</a>
 						</div>
 						<%num++;%>
 					<%} %>
 			<% }; %>
+			</div){>
 		
 
 	</section>
