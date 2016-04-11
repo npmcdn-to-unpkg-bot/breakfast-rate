@@ -35,23 +35,26 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand " href="/">
+          <a class="navbar-brand " href="/recipes">
 			<img alt="Brand" src="/img/logo.svg">
           </a>
         </div>
 
         <div class="collapse navbar-collapse" id="navbar-collapse">
            <ul class="nav navbar-nav navbar-right">
-              <li><a href="/recipes">Recipes</a></li>
-              <li><a href="/login">Login</a></li>
 
-              <!-- <li><a href="">About</a></li> -->
-              <a href="/register"><button type="button" class="btn navbar-btn" id="register">Sign Up</button></a>
-              <li><a href="/logout">Log Out</a></li>
               
+              <% if(!currentUser) { %>
+                <li><a href="/login">Login</a></li>
+                <a href="/register"><button type="button" class="btn navbar-btn" id="register">Sign Up</button></a>
+                <%} else {%>
+                <li class="navbar-text">Signed in as <strong><%=currentUser.username%></strong></li>
+                <li><a href="/logout">Logout</a></li>
+              <%}%>
 
            </ul>
         </div>
 
       </div>
+
     </nav>

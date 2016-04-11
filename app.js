@@ -33,6 +33,12 @@ passport.use(new localStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+//runs for ever single route
+app.use(function(req,res,next){
+	res.locals.currentUser = req.user;
+	next();
+});
+
 //LANDING PAGE
 app.get("/", function(req,res){
 	res.render("landing");
@@ -49,7 +55,7 @@ app.get("/recipes", function(req,res){
 		if(err){
 			console.log(err);
 		} else {
-			res.render("recipes/index", {recipes:recipes});
+			res.render("recipes/index", {recipes:recipes, currentUser: req.user});
 		}
 	});
 });
@@ -179,7 +185,7 @@ app.delete("/recipes/:id", function(req,res){
 ====================*/
 
 //NEW
-app.get("/recipes/:id/comments/new", function(req,res){
+app.get("/recipes/:id/comments/new", isLoggedIn, function(req,res){
 	Recipe.findById(req.params.id, function(err, recipe){
 		if(err){
 			console.log(err);
@@ -191,7 +197,7 @@ app.get("/recipes/:id/comments/new", function(req,res){
 });
 
 //CREATE
-app.post("/recipes/:id/comments", function(req, res){
+app.post("/recipes/:id/comments", isLoggedIn, function(req, res){
 	Recipe.findById(req.params.id, function(err, recipe){
 		if(err){
 			console.log(err);
@@ -252,6 +258,13 @@ app.get("/logout", function(req,res){
 	req.logout();
 	res.redirect("/recipes");
 });
+
+function isLoggedIn(req,res, next){
+	if(req.isAuthenticated()){
+		return next();
+	}
+	res.redirect("/login");
+}
 
 app.listen(process.env.PORT || 3000, function(){
 	console.log('The Breakfast Rate server is running...');
