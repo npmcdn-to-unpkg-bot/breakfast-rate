@@ -247,6 +247,12 @@ app.post("/login", passport.authenticate("local",
 	}), function(req,res){
 });
 
+//logout
+app.get("/logout", function(req,res){
+	req.logout();
+	res.redirect("/recipes");
+});
+
 app.listen(process.env.PORT || 3000, function(){
 	console.log('The Breakfast Rate server is running...');
 });
