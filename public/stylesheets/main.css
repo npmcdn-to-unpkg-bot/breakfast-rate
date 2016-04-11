@@ -231,6 +231,18 @@ h2 {
   	margin: 0 auto;
 }
 
+/*===COMMENTS===*/
+
+
+.show-recipe-comments {
+	font-size:14.5px;
+}
+
+.show-recipe-comments h2 {
+	margin-bottom:10px;
+}
+
+/*=== SIDEBAR ===*/
 
 #sidebar {
 	min-height:500px;
@@ -249,8 +261,6 @@ h2 {
 	color: #F9D15B;
 	font-size:25px;
 }
-
-
 
 #sidebar .other-recipes-grid-item a{
 	text-decoration: none;
@@ -329,7 +339,7 @@ h2 {
 		font-size:28px;
 	}
 
-	h2 {
+	.grid-item h2 {
 		font-size:20px;
 	}
 

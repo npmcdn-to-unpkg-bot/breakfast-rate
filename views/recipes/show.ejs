@@ -10,7 +10,7 @@
 		<% } %>
 	</div>
 		
-	<main id="recipe-show-container" class="col-md-9 recipe-container">
+	<div id="recipe-show-container" class="col-md-9 recipe-container">
 		<div class="row">
 	
 			
@@ -91,12 +91,13 @@
 			</div>
 		</div>
 
-		<div class="row">
+		<div class="row show-recipe-comments">
 			<div class="col-xs-12">
 				<h2>Comments</h2>
 				
 				<% recipe.comments.forEach(function(comment){ %>
-					<p><strong><%=comment.author%></strong>: <%=comment.text%></p>
+					<p><strong><%=comment.author%></strong>: 
+					<br><%=comment.text%></p>
 				<% }) %>
 
 				<a class="btn btn-warning" href="/recipes/<%=recipe._id%>/comments/new">Add New Comment</a>
@@ -113,7 +114,7 @@
 			</div>
 		</div>
 
-	</main>
+	</div>
 
 	<section id="sidebar" class="col-md-3">
 
