@@ -3,12 +3,15 @@ var express 			= require("express"),
 	bodyParser 			= require('body-parser'),
 	mongoose 			= require('mongoose'),
 	methodOverride 		= require('method-override'),
+	passport			= require('passport'),
+	localStrategy		= reqeuire('passport-local'),
 	//Models
 	Recipe 				= require("./models/recipe"),
 	Comment				= require("./models/comment"),
+	// User				= require("./models/user"),
 	//Seed file
 	seedDB				=require("./seeds");
-
+	
 
 //APP CONFIG
 mongoose.connect('mongodb://localhost/breakfast-rate');
