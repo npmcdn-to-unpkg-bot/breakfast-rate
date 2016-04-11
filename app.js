@@ -215,12 +215,12 @@ app.post("/recipes/:id/comments", function(req, res){
 	AUTH ROUTES
 ====================*/
 
-//INDEX / NEW
+//register form
 app.get("/register", function(req,res){
 	res.render("register");
 });
 
-//CREATE
+//handle register form
 app.post("/register", function(req,res){
 	var newUser = new User({username: req.body.username});
 	User.register(newUser, req.body.password, function(err, user){
@@ -234,7 +234,18 @@ app.post("/register", function(req,res){
 	});
 });
 
+//login form
+app.get("/login", function(req,res){
+	res.render('login');
+});
 
+//handle login
+app.post("/login", passport.authenticate("local", 
+	{
+		successRedirect: "/recipes",
+		failureRedirect: "/login"
+	}), function(req,res){
+});
 
 app.listen(process.env.PORT || 3000, function(){
 	console.log('The Breakfast Rate server is running...');
