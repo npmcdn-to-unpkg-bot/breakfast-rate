@@ -55,17 +55,32 @@
 							<strong>Yield:</strong> <%=recipe.servings%> servings
 						</div>
 					</div>
+					
 
+				
+				
+				<!-- Delete -->
 					
 			</div>
-
+			
+			
 			<div class="col-md-6">
 				<img class = "recipe-show-img" src="<%=recipe.image%>"onError="this.onerror=null;this.src='/img/placeholder.svg';">
 			</div>
 
-
-
-		</div>
+		</div>	<!-- /row -->
+		
+		<% if(currentUser && recipe.author.id.equals(currentUser._id)) {%>
+			<div class="row">
+				<div class="col-xs-12 edit-options">
+					<form action="/recipes/<%=recipe._id%>?_method=DELETE" method="POST">
+						<a class="btn btn-success  pull-left" href="/recipes/<%=recipe._id%>/edit">Edit</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<button class="btn btn-danger">Delete</button>
+					</form>
+				</div>
+			</div>
+		<%}%>
+		
 		<hr>
 
 		<!-- <p>Added on <%=recipe.created.toDateString()%></p> -->
@@ -102,13 +117,7 @@
 
 				<a class="btn btn-warning" href="/recipes/<%=recipe._id%>/comments/new">Add New Comment</a>
 
-				<a class="btn btn-success" href="/recipes/<%=recipe._id%>/edit">Edit</a>
-				<br><br>
 
-				<!-- Delete -->
-				<form action="/recipes/<%=recipe._id%>?_method=DELETE" method="POST">
-					<button class="btn btn-danger pull right">Delete</button>
-				</form>
 
 				<a href="/recipes">Go Back</a>
 			</div>
@@ -143,7 +152,7 @@
 		<% if (otherrecipes.length <4){ %>
 			<% length = 0; %>
 		<% } else { %>
-			<% length = 3; %>
+			<% length = 4; %>
 			<h3>Other Recipes</h3>
 		<% }; %>
 
