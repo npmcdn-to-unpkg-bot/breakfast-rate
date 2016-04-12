@@ -15,12 +15,12 @@ router.get("/", function(req,res){
 });
 
 //NEW
-router.get("/new", function(req,res){
+router.get("/new", isLoggedIn, function(req,res){
 	res.render("recipes/new");
 });
 
 //CREATE
-router.post("/", function(req,res){
+router.post("/", isLoggedIn, function(req,res){
 	//get data from form and add to recipes array
 	var name = req.body.name;
 	var image = req.body.image;
@@ -30,6 +30,10 @@ router.post("/", function(req,res){
 	var cookTime = req.body.cookTime;
 	var ingredients = req.body.ingredients;
 	var instructions = req.body.instructions;
+	var author ={
+		id: req.user._id,
+		username: req.user.username,
+	};
 	//needed for firefox
 	if(req.body.image.length<1){
 		image = "/img/placeholder.svg";
@@ -44,6 +48,7 @@ router.post("/", function(req,res){
 		cookTime: cookTime,
 		ingredients: ingredients,
 		instructions: instructions,
+		author: author,
 	};
 
 
@@ -135,3 +140,12 @@ router.delete("/:id", function(req,res){
 });
 
 module.exports = router;
+
+
+//middleware
+function isLoggedIn(req,res, next){
+	if(req.isAuthenticated()){
+		return next();
+	}
+	res.redirect("/login");
+}

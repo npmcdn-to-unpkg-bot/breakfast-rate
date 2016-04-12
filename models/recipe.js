@@ -11,6 +11,13 @@ var recipeSchema = new mongoose.Schema({
 	ingredients: [],
 	instructions: [],
 	source: {type: String, default:""},
+	author: {
+		id: {
+			type: mongoose.Schema.Types.ObjectId,
+			ref: "User"
+		},
+		username: String,
+	},
 	comments: [
 		{
 			type: mongoose.Schema.Types.ObjectId,
