@@ -96,7 +96,7 @@
 				<h2>Comments</h2>
 				
 				<% recipe.comments.forEach(function(comment){ %>
-					<p><strong><%=comment.author%></strong>: 
+					<p><strong><%=comment.author.username%></strong>: 
 					<br><%=comment.text%></p>
 				<% }) %>
 
