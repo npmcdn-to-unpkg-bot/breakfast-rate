@@ -56,21 +56,16 @@
 						</div>
 					</div>
 					
-
-				
-				
-				<!-- Delete -->
-					
 			</div>
-			
-			
+				
 			<div class="col-md-6">
 				<img class = "recipe-show-img" src="<%=recipe.image%>"onError="this.onerror=null;this.src='/img/placeholder.svg';">
 			</div>
 
 		</div>	<!-- /row -->
 		
-		<% if(currentUser && recipe.author.id.equals(currentUser._id)) {%>
+		
+		<%if(currentUser && recipe.author.id.equals(currentUser._id)) { %>
 			<div class="row">
 				<div class="col-xs-12 edit-options">
 					<form action="/recipes/<%=recipe._id%>?_method=DELETE" method="POST">
@@ -80,7 +75,7 @@
 				</div>
 			</div>
 		<%}%>
-		
+
 		<hr>
 
 		<!-- <p>Added on <%=recipe.created.toDateString()%></p> -->
@@ -106,20 +101,29 @@
 			</div>
 		</div>
 
+		<hr>
+
 		<div class="row show-recipe-comments">
 			<div class="col-xs-12">
 				<h2>Comments</h2>
 				
 				<% recipe.comments.forEach(function(comment){ %>
-					<p><strong><%=comment.author.username%></strong>: 
-					<br><%=comment.text%></p>
+					<div class="comment">
+						<strong><%=comment.author.username%></strong>: 
+						
+						<br><%=comment.text%>
+						
+						<form class="delete-form" action="/recipes/<%=recipe._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST">
+							<a href="/recipes/<%=recipe._id%>/comments/<%=comment._id%>/edit" class="btn btn-xs btn-primary">Edit Comment</a>
+							<button class="btn btn-xs btn-danger">Delete</button>
+						</form>
+					</div>
 				<% }) %>
 
 				<a class="btn btn-warning" href="/recipes/<%=recipe._id%>/comments/new">Add New Comment</a>
 
 
 
-				<a href="/recipes">Go Back</a>
 			</div>
 		</div>
 
