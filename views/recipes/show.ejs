@@ -108,16 +108,21 @@
 				<h2>Comments</h2>
 				
 				<% recipe.comments.forEach(function(comment){ %>
+					
 					<div class="comment">
 						<strong><%=comment.author.username%></strong>: 
 						
 						<br><%=comment.text%>
 						
+
+						<%if(currentUser && comment.author.id.equals(currentUser._id)) { %>
 						<form class="delete-form" action="/recipes/<%=recipe._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST">
 							<a href="/recipes/<%=recipe._id%>/comments/<%=comment._id%>/edit" class="btn btn-xs btn-primary">Edit Comment</a>
 							<button class="btn btn-xs btn-danger">Delete</button>
 						</form>
+						<% } %>
 					</div>
+
 				<% }) %>
 
 				<a class="btn btn-warning" href="/recipes/<%=recipe._id%>/comments/new">Add New Comment</a>
