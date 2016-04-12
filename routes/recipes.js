@@ -83,19 +83,14 @@ router.get("/:id/", function(req,res){
 });
 
 //EDIT
-router.get("/:id/edit", function(req,res){
+router.get("/:id/edit", checkRecipeOwnership, function(req,res){
 	Recipe.findById(req.params.id, function(err, foundRecipe){
-		if(err){
-			console.log(err);
-			res.redirect("/recipes");
-		} else {
-			res.render("recipes/edit", {recipe:foundRecipe});
-		}
+		res.render("recipes/edit", {recipe:foundRecipe});
 	});
 });
 
 //UPDATE
-router.put("/:id", function(req,res){
+router.put("/:id", checkRecipeOwnership, function(req,res){
 	var name = req.body.recipe.name;
 	var image = req.body.recipe.image;
 	var description = req.body.recipe.description;
@@ -128,7 +123,7 @@ router.put("/:id", function(req,res){
 });
 
 //DESTROY
-router.delete("/:id", function(req,res){
+router.delete("/:id", checkRecipeOwnership, function(req,res){
 	Recipe.findByIdAndRemove(req.params.id, function(err){
 		if(err){
 			console.log(err);
@@ -148,4 +143,23 @@ function isLoggedIn(req,res, next){
 		return next();
 	}
 	res.redirect("/login");
+}
+
+function checkRecipeOwnership(req, res, next) {
+	if(req.isAuthenticated()){
+		Recipe.findById(req.params.id, function(err, foundRecipe){
+			if(err){
+				console.log(err);
+				res.redirect("back");
+			} else {
+				if(foundRecipe.author.id.equals(req.user._id)){
+					next();
+				} else {
+					res.redirect("back");
+				}
+			}
+		});
+	} else {
+		res.redirect("back");
+	}
 }
