@@ -135,14 +135,23 @@
 		<%var recipeLocation = findWithAttr(otherrecipes, '_id', recipeID);%>
 
 		<%locationArray.push(recipeLocation);%>
-
+		
 		<%var num = 0; %>
 
-		
+		<!-- Below logic is used in case there's less than 3 recipes in the database -->
+		<%var length = 0%>
+		<% if (otherrecipes.length <4){ %>
+			<% length = 0; %>
+		<% } else { %>
+			<% length = 3; %>
 			<h3>Other Recipes</h3>
+		<% }; %>
+
+		
+			
 			<div class="other-recipes-grid">
 			<div class="other-recipes-grid-sizer"></div>
-			<% while(num<4){ %>
+			<% while(num<length){ %>
 					<% x = Math.floor((Math.random() * otherrecipes.length) + 0); %>
 					<% if(locationArray.indexOf(x)=== -1){ %>
 						<% locationArray.push(x);%>	
