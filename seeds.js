@@ -2,6 +2,10 @@ var mongoose = require("mongoose"),
 	Recipe = require("./models/recipe"),
 	Comment = require("./models/comment");
 
+
+//List of users
+/*Thomas, Matthew, Granny, Nathan Drake, Johnny Appleseed, Mary Poppins*/
+
 var recipeData = [
 	{
 		name: "Gluten Free Blueberry Muffins",
@@ -13,6 +17,9 @@ var recipeData = [
 		ingredients: ["2 cups gluten-free all-purpose flour", "3/4 cup sugar", "2 teaspoons baking powder", "1 teaspoon xanthan gum", "1/2 teaspoon salt", "1/2 cup (1 stick) unsalted butter, melted and cooled", "1/2 cup whole milk", "2 large eggs", "2 teaspoons grated lemon zest", "1 teaspoon vanilla extract", "1 1/2 cups blueberries"],
 		instructions: ["Preheat oven to 375°F.", "Lightly butter or grease a 12-cup muffin pan or line with paper liners.", "Stir together flour, sugar, baking powder, xanthan gum and salt in a medium bowl until blended. Whisk together butter, milk, eggs, lemon zest and vanilla in a large bowl until combined. Stir in flour mixture until partially moistened. Fold in blueberries until evenly mixed. Batter will be thick, do not over stir. Divide batter evenly between muffin cups, filling each about three-fourths full.", "Bake 10 minutes. Rotate pan and continue to bake about 10 minutes longer or until muffins are golden brown and toothpick inserted in center comes out clean. Cool in pan 3 minutes. Serve warm or remove to wire rack to cool completely."],
 		source: "http://www.driscolls.com/recipes/view/6938/Gluten-Free-Blueberry-Muffins",
+		author: {
+			username: "Admin",
+		}
 	},
 	{
 		name: "Power Sandwich",
@@ -149,7 +156,7 @@ var recipeData = [
 
 function seedDB(){
 
-	//remvoe comments
+	//remove comments
 	Comment.remove({}, function(err){
 		if(err){
 			console.log(err);
@@ -169,19 +176,19 @@ function seedDB(){
 					} else {
 						console.log("Added recipe");
 						//add comments
-                    Comment.create(
-                        {
-                            text: "This food is great, but I wish there was more flavor",
-                            author: "Bobby"
-                        }, function(err, comment){
-                            if(err){
-                                console.log(err);
-                            } else {
-                                recipe.comments.push(comment);
-                                recipe.save();
-                                console.log("Created new comment");
-                            }
-                        });
+                    // Comment.create(
+                    //     {
+                    //         text: "This food is great, but I wish there was more flavor",
+                    //         author: "Bobby"
+                    //     }, function(err, comment){
+                    //         if(err){
+                    //             console.log(err);
+                    //         } else {
+                    //             recipe.comments.push(comment);
+                    //             recipe.save();
+                    //             console.log("Created new comment");
+                    //         }
+                    //     });
 
                 	
 					}
