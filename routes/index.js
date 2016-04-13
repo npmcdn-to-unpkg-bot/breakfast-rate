@@ -23,10 +23,10 @@ router.post("/register", function(req,res){
 	var newUser = new User({username: req.body.username});
 	User.register(newUser, req.body.password, function(err, user){
 		if(err) {
-			console.log(err);
-			return res.render("register");
+			return res.render("register", {error: err.message});
 		} 
 		passport.authenticate("local")(req, res, function(){
+			req.flash("success", "Welcome to Breakfast-Rate " + user.username + "!");
 			res.redirect("/recipes");
 		});
 	});
@@ -41,13 +41,16 @@ router.get("/login", function(req,res){
 router.post("/login", passport.authenticate("local", 
 	{
 		successRedirect: "/recipes",
-		failureRedirect: "/login"
+		failureRedirect: "/login",
+		failureFlash: "Invalid username or password",
+		successFlash: "Welcome back to Breakfast-Rate!",
 	}), function(req,res){
 });
 
 //logout
 router.get("/logout", function(req,res){
 	req.logout();
+	req.flash("success", "Successfully logged you out,");
 	res.redirect("/recipes");
 });
 

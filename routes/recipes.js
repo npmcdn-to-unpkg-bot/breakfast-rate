@@ -132,6 +132,7 @@ router.delete("/:id", middleware.checkRecipeOwnership, function(req,res){
 			console.log(err);
 			res.redirect("/recipes");
 		} else {
+			req.flash("success", "Recipe deleted.");
 			res.redirect("/recipes");
 		}
 	});
