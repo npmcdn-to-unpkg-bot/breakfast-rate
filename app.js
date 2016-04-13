@@ -5,6 +5,7 @@ var express 			= require("express"),
 	methodOverride 		= require('method-override'),
 	passport			= require('passport'),
 	localStrategy		= require('passport-local'),
+	flash				= require('connect-flash'),
 	//Models
 	Recipe 				= require("./models/recipe"),
 	Comment				= require("./models/comment"),
@@ -24,6 +25,7 @@ app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));	//css
 app.use(bodyParser.urlencoded({ extended: true }));	//tells express to use bodyParser
 app.use(methodOverride("_method"));
+app.use(flash());
 // seedDB();
 
 //PASSPORT CONFIG
