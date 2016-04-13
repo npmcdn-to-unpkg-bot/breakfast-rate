@@ -21,7 +21,7 @@ $grid2.imagesLoaded().progress( function() {
 });    
 
 /*====================
-	NEW RECIPE FORM
+	NEW / EDIT RECIPE FORM
 ====================*/
 
 //allows the span with class "delete-form" to delete the parent they're in
@@ -45,7 +45,7 @@ function setInstructionNumber(){
 
 $("#addInstruction").on("click", function(){
 	// $("#instructionHolder>ol").append('<li>Step <span class="step"></span><textarea name="instructions" class="form-control" rows="3"></textarea><span class="setDeleteForm">X</span></li>');
-	$('<li>Step <span class="step"></span><textarea name="instructions" class="form-control" rows="3"></textarea><span class="delete-form">X</span></li>').hide().appendTo("#instructionHolder>ol").fadeIn();
+	$('<li>Step <span class="step"></span> <span class="delete-form"><i class="fa fa-times-circle pull-right" aria-hidden="true"></i></span><textarea name="instructions" class="form-control" rows="4"></textarea></li>').hide().appendTo("#instructionHolder>ol").fadeIn();
 	setInstructionNumber();
 	setDeleteForm();
 });
@@ -54,7 +54,7 @@ $("#addInstruction").on("click", function(){
 //***** Ingredients *****
 
 $("#addIngredient").on("click", function(){
-	$('<div class="input-group"><input type="text" name="ingredients" class="form-control"><span class="input-group-addon delete-form">X</span></div>').hide().appendTo("#ingredientHolder").fadeIn();
+	$('<div class="ingredient-edit"><span class="delete-form"><i class="fa fa-times-circle pull-right" aria-hidden="true"></i></span><input type="text" name="ingredients" class="form-control"></div>').hide().appendTo("#ingredientHolder").fadeIn();
 	setDeleteForm();
 });
 

@@ -1,7 +1,7 @@
 <% include ../partials/header %>
 
 <div class="container">
-	<div style="width:30%; margin:25px auto">	
+	<div  class="new-edit-container">
 		
 		<h1>Add new recipe</h1>
 		
@@ -46,7 +46,7 @@
 						</div>
 					</div>
 						
-				<button type="button" id="addIngredient">Add Ingredient</button> 
+				<button type="button" class="btn btn-xs" id="addIngredient">Add Ingredient</button> 
 			</div>
 
 			<div class="form-group">
@@ -56,11 +56,11 @@
 					<ol>
 						<li>
 							Step <span class="step"></span>	
-							<textarea name="instructions" class="form-control" rows="3"></textarea>			
+							<textarea name="instructions" class="form-control" rows="4"></textarea>	
 						</li>
 					</ol>
 				</div>
-				<button type="button" id="addInstruction">Click to add another instruction</button>
+				<button type="button" class="btn btn-xs" id="addInstruction">Add Instruction</button>
 			</div>
 
 
@@ -68,8 +68,6 @@
 				<button class="btn btn-warning">Add Recipe</button>
 			</div>
 		</form>
-
-		<a href="/recipes">Go back to recipes</a>
 
 	</div>
 </div>

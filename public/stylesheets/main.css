@@ -242,9 +242,39 @@ h2 {
 }
 
 /*===EDIT OPTIONS===*/
+.new-edit-container {
+	max-width:350px;
+	margin:0 auto;
+}
+
 
 .edit-options {
 	margin-top:10px;
+}
+
+#instructionHolder ol {
+	padding:0;
+	list-style:none;
+}
+
+#instructionHolder ol li {
+	margin-bottom:10px;
+}
+
+#addIngredient {
+	margin-top:10px;
+}
+
+#instructionHolder ol li textarea{
+	 resize: none;
+}
+
+.fa-times-circle {
+	font-size:20px;
+	cursor:pointer;
+	position:relative;
+	top:10px;
+	right:-5px;
 }
 
 /*===COMMENTS===*/

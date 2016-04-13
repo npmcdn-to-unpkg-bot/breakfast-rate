@@ -1,7 +1,7 @@
 <% include ../partials/header %>
 
 <div class="container">
-	<div style="width:30%; margin:25px auto">	
+	<div  class="new-edit-container">	
 
 		<h1>Edit <%=recipe.name%></h1>
 
@@ -41,20 +41,22 @@
 				<label>Ingredients:</label>
 					
 					<div id = "ingredientHolder">
-						<div>
+						<div class="ingredient-edit">
   							<input type="text" name="ingredients" class="form-control" value="<%=recipe.ingredients[0]%>">
 						</div>
 
 						<% for(i=1; i<recipe.ingredients.length; i++){ %>
-							<div class="input-group">
+								
+							<div class="ingredient-edit">
+								<span class="delete-form"><i class="fa fa-times-circle pull-right" aria-hidden="true"></i></span>
 								<input type="text" name="ingredients" class="form-control" value="<%=recipe.ingredients[i]%>">
-								<span class="input-group-addon delete-form">X</span>
 							</div>
+							
 						<% } %>
 
 					</div>
 						
-				<button type="button" id="addIngredient">Add Ingredient</button> 
+				<button type="button" class="btn btn-xs" id="addIngredient">Add Ingredient</button> 
 			</div>
 
 			<div class="form-group">
@@ -63,20 +65,22 @@
 				<div id="instructionHolder">
 					<ol>
 						<li>
-							Step <span class="step"></span>	
-							<textarea name="instructions" class="form-control" rows="3"><%=recipe.instructions[0]%></textarea>			
+							Step <span class="step"></span>								
+							<textarea name="instructions" class="form-control" rows="4"><%=recipe.instructions[0]%></textarea>			
 						</li>
 						
 						<% for(i=1; i<recipe.instructions.length; i++){ %>
 							<li>
 								Step <span class="step"></span>
-								<textarea name="instructions" class="form-control" rows="3"><%=recipe.instructions[i]%></textarea>
-								<span class="delete-form">X</span>
+								<span class="delete-form"><i class="fa fa-times-circle pull-right" aria-hidden="true"></i></span>
+								
+								<textarea name="instructions" class="form-control" rows="4"><%=recipe.instructions[i]%></textarea>
+								
 							</li>
 						<% } %>
 					</ol>
 				</div>
-				<button type="button" id="addInstruction">Add instruction</button>
+				<button type="button" class="btn btn-xs" id="addInstruction">Add instruction</button>
 			</div>
 
 			<div class="form-group">
@@ -85,7 +89,7 @@
 
 		</form>
 
-		<a href="/recipes/<%=recipe._id%>">Go back</a>
+		
 
 	</div>
 </div>
