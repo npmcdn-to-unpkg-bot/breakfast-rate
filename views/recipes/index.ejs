@@ -1,17 +1,16 @@
 <% include ../partials/header %>
 
-
-
-
-<!-- <br><a href="/recipes/new">Add New Recipe</a> -->
-
-
 <div class="container">
-	
-	
-		<h1>Breakfast Recipes</h1>
-	
-
+		
+	<div class="row recipe-index-header">
+		<div class="col-xs-8">
+			<h1>Breakfast Recipes</h1>
+		</div>
+		<div class="col-xs-4">
+			<a href="/recipes/new" class="btn btn-lg btn-warning">Add New Recipe</a>
+		</div>
+	</div>
+		
 	<div class="grid">
   	<div class="grid-sizer"></div>
 		
@@ -26,8 +25,14 @@
 				</a>
 
 			</div>
-	<% }); %>
+		<% }); %>
 
+	</div>
+
+	<div class="row recipe-index-bottom">
+		<div class="col-xs-12">
+			<a href="/recipes/new" class="btn btn-lg btn-warning">Add New Recipe</a>
+		</div>
 	</div>
 
 </div>

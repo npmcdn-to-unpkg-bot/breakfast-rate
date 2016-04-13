@@ -1,6 +1,5 @@
+* { box-sizing: border-box; }
 body {
-
-
     height: 100%;
     margin: 0;
     margin-top:80px;
@@ -23,6 +22,10 @@ h2 {
 	margin:0;
 	color: #F9D15B;
 	font-size:25px;
+}
+
+.btn {
+	border-radius:0px;
 }
 
 /*===================
@@ -86,22 +89,28 @@ h2 {
 }
 
 
-
-
-
 /*===================
-	TILES IMAGES 
+	RECIPES INDEX PAGE
 ====================*/
 
+.recipe-index-header {
+}
+
+.recipe-index-header .col-xs-4 a{
+	float:right;
+}
+
+.recipe-index-bottom .col-xs-12 a {
+	/*float:left;*/
+	display:block;
+	width:80%;
+	margin:0 auto;
+	margin-top:5px;
+	margin-bottom:15px;
+
+}
 
 /*MASONRY */
-
-
-* { box-sizing: border-box; }
-
-/* force scrollbar */
-
-
 
 /* ---- grid ---- */
 
@@ -340,8 +349,26 @@ h2 {
 	.grid-item {
 		width: 50%;
 	}
+}
 
+@media screen and (max-width: 550px) {
+	.recipe-index-header .col-xs-8{
+		width:100%;
+	}
+	.recipe-index-header .col-xs-4{
+		width:100%;
+		margin-bottom:10px;
+	}
+	.recipe-index-header .col-xs-4 a{
+		float: left;
+		width:100%;
+	}
 
+	.recipe-index-bottom .col-xs-12 a {
+		width:100%;
+	}
+
+	
 }
 
 @media screen and (max-width: 450px) {
