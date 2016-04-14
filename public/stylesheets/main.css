@@ -415,6 +415,23 @@ a:hover {
 }
 
 
+/*============================
+	LOGIN FORM / REGISTER FORM
+==============================*/
+
+.login-register-container {
+	width: 300px;
+	margin-bottom:20px;
+}
+
+.login-register-container form{
+	margin-bottom:20px;
+}
+
+.login-register-container p {
+	/*width:200px;*/
+}
+
 
 /*===================
 	MEDIA QUERIES

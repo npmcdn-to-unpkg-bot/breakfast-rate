@@ -65,3 +65,61 @@ $('#newForm').validate();
 $('#editForm').validate();
 $('#commentForm').validate();
 $('#editCommentForm').validate();
+
+
+// $().ready(function(){
+// 	$('#registerForm').validate({
+// 		rules: {
+// 			usernameInput: {
+// 				minLength: 3,
+// 				maxLength:20,
+// 				required:true
+// 			},
+// 			passwordInput: {
+// 				required: true,
+// 				minLength: 8,
+// 				maxLength:20,
+// 			},
+
+
+// 		}
+// 	});
+// });
+
+$('#registerForm').validate({    
+    rules: {
+        username: {
+            minlength: 1,
+            maxlength: 30,
+            required: true
+        },
+        password: {
+            minlength: 6,
+            maxlength: 20,
+            required: true
+        },
+        confirmPassword: {
+        	minlength: 6,
+            maxlength: 20,
+            required: true,
+            equalTo: "#password"
+        }
+    },
+    messages: {
+    	username: {
+    		maxlength: "Your username can't excede 30 characters.",
+    		required: "Please enter a username."
+    	},
+    	password: {
+    		minlength: "Your password must be at least 6 characters long.",
+    		maxlength: "Your password can't excede 20 characters",
+    		required: "Please enter a password.",
+    	},
+    	confirmPassword: {
+    		minlength: "Your password must be at least 6 characters long.",
+    		maxlength: "Your password can't excede 20 characters",
+    		required: "Please enter the same password as above.",
+    		equalTo: "This password isn't the same as above."
+    	}
+    }
+ });
