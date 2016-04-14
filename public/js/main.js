@@ -60,3 +60,8 @@ $("#addIngredient").on("click", function(){
 
 setInstructionNumber();
 setDeleteForm();
+
+$('#newForm').validate();
+$('#editForm').validate();
+$('#commentForm').validate();
+$('#editCommentForm').validate();

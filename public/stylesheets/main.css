@@ -301,7 +301,11 @@ a:hover {
   	margin: 0 auto;
 }
 
-/*===EDIT OPTIONS===*/
+/*===NEW and EDIT OPTIONS===*/
+.error {
+	color:red;
+}
+
 .new-edit-container {
 	max-width:350px;
 	margin:0 auto;
