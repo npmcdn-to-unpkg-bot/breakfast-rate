@@ -24,9 +24,69 @@ h2 {
 	font-size:25px;
 }
 
+a {
+	color:#F9A45B;
+}
+
+a:active{
+	color:#F9A45B;
+
+}
+
+a:hover {
+	color:#DD8234;
+}
+
+
 .btn {
 	border-radius:0px;
 }
+
+
+/*===================
+	LANDING PAGE
+====================*/
+.landing-container {
+	height: 100%;
+    width: 100%;
+ 	text-align: center;
+}
+
+
+.landing-img {
+	display:block;
+	margin:0 auto;
+	margin-top:40px;
+	width:70%;
+	max-width:960px;
+}
+
+.landing-tagline {
+	margin-top:-35px;
+	margin-bottom:60px;
+	padding-left:8px;
+	padding-right:8px;
+}
+
+.landing-login {
+	margin-bottom:60px;
+	display:block;
+}
+
+
+.landing-container h2 {
+	margin-bottom:15px;
+	padding-left:8px;
+	padding-right:8px;
+}
+
+.landing-btn {
+	width:200px;
+	letter-spacing:1.5px;
+	margin-bottom:5px;
+}
+
+
 
 /*===================
 	NAVBAR
@@ -379,6 +439,10 @@ h2 {
 	.grid-item {
 		width: 50%;
 	}
+
+	.landing-tagline {
+		margin-top:-15px;
+	}
 }
 
 @media screen and (max-width: 550px) {
@@ -396,6 +460,19 @@ h2 {
 
 	.recipe-index-bottom .col-xs-12 a {
 		width:100%;
+	}
+
+	.landing-img {
+		width:90%;
+		margin-top:20px;
+	}
+
+	.landing-container h2 {
+		font-size:20px;
+	}
+
+	.landing-tagline {
+		font-size:25px;
 	}
 
 	
