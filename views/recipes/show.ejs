@@ -17,7 +17,7 @@
 			<div class="col-md-6">
 					<h1><%=recipe.name%></h1>
 
-					<div class="rating recipe-info-box">
+				<!-- 	<div class="rating recipe-info-box">
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star"></i>
 						<i class="fa fa-star"></i>
@@ -25,7 +25,7 @@
 						<i class="fa fa-star-o"></i>
 						<a href="">(Check out reviews)</a>	
 					</div>
-
+ -->
 					
 					<div class="recipe-info-box">
 						<strong>Created By:</strong> <%=recipe.author.username%>
@@ -69,7 +69,7 @@
 			<div class="row">
 				<div class="col-xs-12 edit-options">
 					<form action="/recipes/<%=recipe._id%>?_method=DELETE" method="POST">
-						<a class="btn btn-success  pull-left" href="/recipes/<%=recipe._id%>/edit">Edit</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<a class="btn btn-info  pull-left" href="/recipes/<%=recipe._id%>/edit">Edit</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						<button class="btn btn-danger">Delete</button>
 					</form>
 				</div>
@@ -117,7 +117,7 @@
 
 						<%if(currentUser && comment.author.id.equals(currentUser._id)) { %>
 						<form class="delete-form" action="/recipes/<%=recipe._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST">
-							<a href="/recipes/<%=recipe._id%>/comments/<%=comment._id%>/edit" class="btn btn-xs btn-primary">Edit Comment</a>
+							<a href="/recipes/<%=recipe._id%>/comments/<%=comment._id%>/edit" class="btn btn-xs btn-info">Edit Comment</a>
 							<button class="btn btn-xs btn-danger">Delete</button>
 						</form>
 						<% } %>
@@ -158,10 +158,10 @@
 
 		<!-- Below logic is used in case there's less than 3 recipes in the database -->
 		<%var length = 0%>
-		<% if (otherrecipes.length <4){ %>
+		<% if (otherrecipes.length <3){ %>
 			<% length = 0; %>
 		<% } else { %>
-			<% length = 4; %>
+			<% length = 3; %>
 			<h3>Other Recipes</h3>
 		<% }; %>
 
