@@ -303,7 +303,8 @@ a:hover {
 
 /*===NEW and EDIT OPTIONS===*/
 .error {
-	color:red;
+	color: rgb(217, 83, 79);
+	font-weight:lighter;
 }
 
 .new-edit-container {

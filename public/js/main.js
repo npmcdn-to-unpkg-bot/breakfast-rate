@@ -61,30 +61,82 @@ $("#addIngredient").on("click", function(){
 setInstructionNumber();
 setDeleteForm();
 
-$('#newForm').validate();
-$('#editForm').validate();
-$('#commentForm').validate();
-$('#editCommentForm').validate();
-
-
-// $().ready(function(){
-// 	$('#registerForm').validate({
-// 		rules: {
-// 			usernameInput: {
-// 				minLength: 3,
-// 				maxLength:20,
-// 				required:true
-// 			},
-// 			passwordInput: {
-// 				required: true,
-// 				minLength: 8,
-// 				maxLength:20,
-// 			},
-
-
-// 		}
-// 	});
-// });
+$('#newAndEditForm').validate({    
+    rules: {
+        name: {
+            minlength: 3,
+            maxlength: 30,
+            required: true
+        },
+        image:{
+        	maxlength:300,
+        },
+        description: {
+        	maxlength: 500,
+        },
+        servings: {
+            minlength: 1,
+            maxlength: 4,
+            required: true
+        },
+        prepTime: {
+            minlength: 1,
+            maxlength: 4,
+            required: true
+        },
+       cookTime: {
+            minlength: 1,
+            maxlength: 4,
+            required: true
+        },
+        ingredients : {
+        	maxlength: 40,
+        	required: true, 
+        },  
+        instructions : {
+        	maxlength: 300,
+        	required: true, 
+        }
+    },
+    messages: {
+    	name: {
+    		maxlength: "Your recipe's name is too long.",
+    		required: "Please give your dish a name."
+    	},
+    	description: {
+    		maxlength: "Your description can't excede 500 characters."
+    	},
+    	servings: {
+    		minlength: "How many servings is this dish? Enter at least 1.",
+    		maxlength: "That's too many servings!",
+    		required: "How many servings is this dish? Enter at least 1.",
+    	},
+    	prepTime: {
+    		minlength: "How long does it take to prep this dish? Enter 0 if prep isn't needed.",
+    		maxlength: "That's too much prep!",
+    		required: "How long does it take to prep this dish? Enter 0 if prep isn't needed.",
+    	},    	
+    	cookTime: {
+    		minlength: "How long does it take to cook this dish? Enter 0 if cooking isn't needed.",
+    		maxlength: "That's too much cooking time!",
+    		required: "How long does it take to cook this dish? Enter 0 if cooking isn't needed.",
+    	},    	
+    	ingredients: {
+    		maxlength: "This ingredient is too long.",
+    		required: "Please fill this in.",
+    	},    	
+    	instructions: {
+    		maxlength: "An can't exceed 300 characters.",
+    		required: "Please fill this in.",
+    	},	
+    },
+    highlight: function(element) {
+        $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+    },
+    unhighlight: function(element) {
+        $(element).closest('.form-group').removeClass('has-error');
+    },
+ });
 
 $('#registerForm').validate({    
     rules: {
@@ -118,8 +170,8 @@ $('#registerForm').validate({
     	confirmPassword: {
     		minlength: "Your password must be at least 6 characters long.",
     		maxlength: "Your password can't excede 20 characters",
-    		required: "Please enter the same password as above.",
-    		equalTo: "This password isn't the same as above."
+    		required: "Please match the password above.",
+    		equalTo: "This password doesn't match with the one above."
     	}
     }
  });

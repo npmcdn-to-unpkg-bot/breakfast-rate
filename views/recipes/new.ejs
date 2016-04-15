@@ -5,11 +5,11 @@
 		
 		<h1>Add new recipe</h1>
 		
-		<form action="/recipes" method="POST" id="newForm">
+		<form action="/recipes" method="POST" id="newAndEditForm">
 			
 			<div class="form-group">
 				<label>Recipe Name:</label>
-				<input type="text" name="name" class="form-control" minLength="3" required>
+				<input type="text" name="name" class="form-control">
 			</div>
 
 			<div class="form-group">
@@ -19,22 +19,22 @@
 
 			<div class="form-group">
 				<label>Describe your dish:</label>
-				<textarea name="description" class="form-control" rows="4" required></textarea>
+				<textarea name="description" class="form-control" rows="4"></textarea>
 			</div>
 
 			<div class="form-group">
 				<label>Servings:</label>
-				<input type="number" min="0" name="servings" class="form-control " required>
+				<input type="number" min="1" name="servings" class="form-control">
 			</div>
 
 			<div class="form-group">
 				<label>Prep Time (in minutes):</label>
-				<input type="number" min="0" name="prepTime" class="form-control" required>
+				<input type="number" min="0" name="prepTime" class="form-control">
 			</div>
 
 			<div class="form-group">
 				<label>Cook Time (in minutes):</label>
-				<input type="number" min="0" name="cookTime" class="form-control" required>
+				<input type="number" min="0" name="cookTime" class="form-control">
 			</div>
 			
 			<div class="form-group">
@@ -42,7 +42,7 @@
 					
 					<div id = "ingredientHolder">
 						<div>
-  							<input type="text" name="ingredients" class="form-control" required>
+  							<input type="text" name="ingredients" class="form-control">
 						</div>
 					</div>
 						
@@ -56,7 +56,7 @@
 					<ol>
 						<li>
 							Step <span class="step"></span>	
-							<textarea name="instructions" class="form-control" rows="4" required></textarea>	
+							<textarea name="instructions" class="form-control" rows="4"></textarea>	
 						</li>
 					</ol>
 				</div>
