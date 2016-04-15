@@ -180,5 +180,37 @@ $('#registerForm').validate({
     		required: "Please match the password above.",
     		equalTo: "This password doesn't match with the one above."
     	}
-    }
+    },
+    highlight: function(element) {
+        $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+    },
+    unhighlight: function(element) {
+        $(element).closest('.form-group').removeClass('has-error');
+    },
  });
+
+$('#commentForm').validate({    
+    rules: {
+        text: {
+            minlength: 5,
+            maxlength: 300,
+            required: true
+        },
+    },
+    messages: {
+    	text: {
+    		maxlength: "Your comment can't exceed 300 characters.",
+    		minlength: "Please make your comment longer.",
+    		required: "You haven't entered a comment.",
+    	}
+    },
+    highlight: function(element) {
+        $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+    },
+    unhighlight: function(element) {
+        $(element).closest('.form-group').removeClass('has-error');
+    },
+ });
+
+
+

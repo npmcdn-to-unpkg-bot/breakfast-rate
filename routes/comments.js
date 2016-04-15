@@ -23,15 +23,26 @@ router.post("/", middleware.isLoggedIn, function(req, res){
 			console.log(err);
 			res.redirect("/recipes/"+recipe._id);
 		} else {
-			console.log(req.body.comment);
-			Comment.create(req.body.comment, function(err, comment){
+
+			var text = req.body.text;
+			var author ={
+				id: req.user._id,
+				username: req.user.username,
+			};
+
+			var newComment = {
+				text: text,
+				author: author,
+			};
+		
+			Comment.create(newComment, function(err, comment){
 				if(err){
 					req.flash("error", "There was an error handling your request.");
 					console.log(err);
 				} else {
 					//add username and id to comment
-					comment.author.id = req.user._id;
-					comment.author.username = req.user.username;
+					// comment.author.id = req.user._id;
+					// comment.author.username = req.user.username;
 					//save comment
 					comment.save();
 					recipe.comments.push(comment);
@@ -57,7 +68,13 @@ router.get("/:comment_id/edit", middleware.checkCommentOwnership, function(req, 
 
 //UPDATE
 router.put("/:comment_id", middleware.checkCommentOwnership, function(req,res){
-	Comment.findByIdAndUpdate (req.params.comment_id, req.body.comment, function(err, updatedComment){
+	var text = req.body.text;
+
+	var editedRecipe = {
+		text:text,
+	};
+
+	Comment.findByIdAndUpdate (req.params.comment_id, editedRecipe, function(err, updatedComment){
 		if(err){
 			res.redirect("back");
 		} else {
