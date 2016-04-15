@@ -20,8 +20,25 @@
 				<a href="/recipes/<%=recipe._id%>" class="grid-item-inner">
 					<h2><%=recipe.name%></h2>
 					<img class="img-responsive " src="<%=recipe.image%>" onError="this.onerror=null;this.src='/img/placeholder.svg';">
+					
 					<p><%=recipe.description%></p>
-					<!-- <a href="/recipes/<%=recipe._id%>">Learn More</a>	 -->
+					<div class="extra-info">
+						<p>Recipe by: <strong><%=recipe.author.username%></strong></p>
+						
+						<%var totalTime = parseInt(recipe.prepTime)+parseInt(recipe.cookTime)%>
+						
+						<strong><i class="fa fa-clock-o" aria-hidden="true"></i></strong> <%=totalTime%> minutes
+						&nbsp;	
+						<strong><i class="fa fa-pie-chart" aria-hidden="true"></i></strong> <%=recipe.servings%> 
+						<%if(recipe.servings<2){%>
+							serving
+						<%} else {%>
+							servings
+						<%}%>
+					</div>
+
+
+							
 				</a>
 
 			</div>
