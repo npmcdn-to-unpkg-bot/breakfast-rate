@@ -44,18 +44,21 @@ function setInstructionNumber(){
 }
 
 $("#addInstruction").on("click", function(){
-	// $("#instructionHolder>ol").append('<li>Step <span class="step"></span><textarea name="instructions" class="form-control" rows="3"></textarea><span class="setDeleteForm">X</span></li>');
-	$('<li>Step <span class="step"></span> <span class="delete-form"><i class="fa fa-times-circle pull-right" aria-hidden="true"></i></span><textarea name="instructions" class="form-control" rows="4"></textarea></li>').hide().appendTo("#instructionHolder>ol").fadeIn();
-	setInstructionNumber();
-	setDeleteForm();
+	if($('textarea[name="instructions"]').val()!==""){
+		$('<li>Step <span class="step"></span> <span class="delete-form"><i class="fa fa-times-circle pull-right" aria-hidden="true"></i></span><textarea name="instructions" class="form-control" rows="4"></textarea></li>').hide().appendTo("#instructionHolder>ol").fadeIn();
+		setInstructionNumber();
+		setDeleteForm();
+	}
 });
 
 
 //***** Ingredients *****
 
 $("#addIngredient").on("click", function(){
-	$('<div class="ingredient-edit"><span class="delete-form"><i class="fa fa-times-circle pull-right" aria-hidden="true"></i></span><input type="text" name="ingredients" class="form-control"></div>').hide().appendTo("#ingredientHolder").fadeIn();
-	setDeleteForm();
+	if($('input[name="ingredients"]').val()!==""){
+		$('<div class="ingredient-edit"><span class="delete-form"><i class="fa fa-times-circle pull-right" aria-hidden="true"></i></span><input type="text" name="ingredients" class="form-control"></div>').hide().appendTo("#ingredientHolder").fadeIn();
+		setDeleteForm();
+	}
 });
 
 setInstructionNumber();
@@ -72,7 +75,9 @@ $('#newAndEditForm').validate({
         	maxlength:300,
         },
         description: {
+        	minlength: 5,
         	maxlength: 500,
+        	required:true,
         },
         servings: {
             minlength: 1,
@@ -104,7 +109,9 @@ $('#newAndEditForm').validate({
     		required: "Please give your dish a name."
     	},
     	description: {
-    		maxlength: "Your description can't excede 500 characters."
+    		minlength: "Describe your dish in at least one sentence.",
+    		maxlength: "Your description can't excede 500 characters.",
+    		required: "Describe your dish in at least one sentence."
     	},
     	servings: {
     		minlength: "How many servings is this dish? Enter at least 1.",
