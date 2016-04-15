@@ -9,17 +9,17 @@
 			
 			<div class="form-group ">
 				<label>Recipe Name:</label>
-				<input type="text" name="recipe[name]" placeholder="Name" value="<%=recipe.name%>" class="form-control" minLength="3" required>
+				<input type="text" name="name" placeholder="Name" value="<%=recipe.name%>" class="form-control" minLength="3" required>
 			</div>
 
 			<div class="form-group">
 				<label>Image URL:</label>
-				<input type="text" name="recipe[image]" placeholder="Image URL" value="<%=recipe.image%>" class="form-control">
+				<input type="text" name="image" placeholder="Image URL" value="<%=recipe.image%>" class="form-control">
 			</div>
 
 			<div class="form-group">
 				<label>Description:</label>
-				<input type="text" name="recipe[description]" placeholder="Description" value="<%=recipe.description%>" class="form-control">
+				<textarea name="description" class="form-control" rows="4" required><%=recipe.description%></textarea>
 			</div>
 
 			<div class="form-group">

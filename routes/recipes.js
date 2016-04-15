@@ -94,9 +94,9 @@ router.get("/:id/edit", middleware.checkRecipeOwnership, function(req,res){
 
 //UPDATE
 router.put("/:id", middleware.checkRecipeOwnership, function(req,res){
-	var name = req.body.recipe.name;
-	var image = req.body.recipe.image;
-	var description = req.body.recipe.description;
+	var name = req.body.name;
+	var image = req.body.image;
+	var description = req.body.description;
 	var servings = req.body.servings;
 	var prepTime = req.body.prepTime;
 	var cookTime = req.body.cookTime;
@@ -120,7 +120,6 @@ router.put("/:id", middleware.checkRecipeOwnership, function(req,res){
 			res.redirect("/recipes");
 		} else {
 			res.redirect("/recipes/" + req.params.id);
-			console.log(instructions);
 		}
 	});
 });
