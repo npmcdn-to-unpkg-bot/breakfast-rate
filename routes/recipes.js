@@ -26,6 +26,7 @@ router.get("/new", middleware.isLoggedIn, function(req,res){
 router.post("/", middleware.isLoggedIn, function(req,res){
 	//get data from form and add to recipes array
 	var name = req.body.name;
+	var source = req.body.source;
 	var image = req.body.image;
 	var description = req.body.description;
 	var servings = req.body.servings;
@@ -44,6 +45,7 @@ router.post("/", middleware.isLoggedIn, function(req,res){
 
 	var newRecipe = {
 		name: name,
+		source: source,
 		image: image,
 		description: description,
 		servings: servings,
@@ -95,6 +97,7 @@ router.get("/:id/edit", middleware.checkRecipeOwnership, function(req,res){
 //UPDATE
 router.put("/:id", middleware.checkRecipeOwnership, function(req,res){
 	var name = req.body.name;
+	var source = req.body.source;
 	var image = req.body.image;
 	var description = req.body.description;
 	var servings = req.body.servings;
@@ -105,6 +108,7 @@ router.put("/:id", middleware.checkRecipeOwnership, function(req,res){
 
 	var editedRecipe = {
 		name: name,
+		source: source,
 		image: image,
 		description: description,
 		servings: servings,
