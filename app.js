@@ -21,7 +21,7 @@ var indexRoutes		= require("./routes/index"),
 
 //APP CONFIG
 
-var url = process.env.DATABASEURL;
+var url = process.env.DATABASEURL || "mongodb://localhost/breakfast-rate";
 mongoose.connect(url);
 
 app.set("view engine", "ejs");
