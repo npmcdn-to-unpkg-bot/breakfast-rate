@@ -1,5 +1,5 @@
 $(function(){
-      if (window.location.pathname == "/" ||window.location.pathname == "/register"||window.location.pathname == "/login") {
+      if (window.location.pathname == "/" ||window.location.pathname == "/register"||window.location.pathname == "/login" ||window.location.pathname == "/login") {
             $('footer').hide();
       } else {
             $('#footer').show();
