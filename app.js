@@ -20,7 +20,10 @@ var indexRoutes		= require("./routes/index"),
 
 
 //APP CONFIG
-mongoose.connect('mongodb://localhost/breakfast-rate');
+
+var url = process.env.DATABASEURL;
+mongoose.connect(url);
+
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));	//css
 app.use(bodyParser.urlencoded({ extended: true }));	//tells express to use bodyParser
