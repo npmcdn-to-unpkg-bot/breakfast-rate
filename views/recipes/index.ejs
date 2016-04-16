@@ -28,13 +28,15 @@
 						<%var totalTime = parseInt(recipe.prepTime)+parseInt(recipe.cookTime)%>
 						
 						<strong><i class="fa fa-clock-o" aria-hidden="true"></i></strong> <%=totalTime%> minutes
+
 						&nbsp;	
-						<strong><i class="fa fa-pie-chart" aria-hidden="true"></i></strong> <%=recipe.servings%> 
+						<span class="servings"><strong><i class="fa fa-pie-chart" aria-hidden="true"></i></strong> <%=recipe.servings%> 
 						<%if(recipe.servings<2){%>
 							serving
 						<%} else {%>
 							servings
 						<%}%>
+						</span>
 					</div>
 
 

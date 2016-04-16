@@ -178,6 +178,10 @@ a:hover {
 	color: #999999;
 }
 
+.minutes-media {
+	display:none;
+}
+
 /*MASONRY */
 
 /* ---- grid ---- */
@@ -538,6 +542,36 @@ textarea{
 
 	#sidebar h4 {
 		font-size:20px;
+	}
+
+	.servings {
+		display:block;
+	}
+
+	.recipe-info-box .col-xs-5 {
+		width:100%;
+	}
+
+	.recipe-info-box .col-xs-5 br {
+		display:none;
+	}
+
+	.recipe-info-box .col-xs-7 {
+		width:100%;
+		padding-left:40px;
+	}
+
+	#recipe-show-container {
+		font-size:15px;
+	}
+
+	ol, ul {
+		padding-left:20px;
+	}
+	
+	/*instructions padding for show page*/
+	.instructions-div {
+		margin-top:25px;
 	}
 
 }
