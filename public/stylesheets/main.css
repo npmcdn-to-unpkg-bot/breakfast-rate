@@ -427,6 +427,17 @@ textarea{
   /*border:1px solid black;*/
 }
 
+/*===================
+	FOOTER
+====================*/
+
+footer {
+	padding:10px;
+	color: #D64E85;
+	background: #F9C9DC;
+	text-align: center;
+}
+
 
 /*============================
 	LOGIN FORM / REGISTER FORM

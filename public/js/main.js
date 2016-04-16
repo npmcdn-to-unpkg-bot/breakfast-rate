@@ -1,3 +1,11 @@
+$(function(){
+      if (window.location.pathname == "/") {
+            $('footer').hide();
+      } else {
+            $('#footer').show();
+      }
+ });
+
 var $grid = $('.grid').masonry({
   itemSelector: '.grid-item',
   percentPosition: true,
@@ -95,11 +103,11 @@ $('#newAndEditForm').validate({
             required: true
         },
         ingredients : {
-        	maxlength: 40,
+        	maxlength: 50,
         	required: true, 
         },  
         instructions : {
-        	maxlength: 300,
+        	maxlength: 500,
         	required: true, 
         }
     },
@@ -133,7 +141,7 @@ $('#newAndEditForm').validate({
     		required: "Please fill this in.",
     	},    	
     	instructions: {
-    		maxlength: "An can't exceed 300 characters.",
+    		maxlength: "An instruction can't exceed 500 characters.",
     		required: "Please fill this in.",
     	},	
     },
