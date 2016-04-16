@@ -1,10 +1,10 @@
-$(function(){
-      if (window.location.pathname == "/" ||window.location.pathname == "/register"||window.location.pathname == "/login" ||window.location.pathname == "/login") {
-            $('footer').hide();
-      } else {
-            $('#footer').show();
-      }
- });
+// $(function(){
+//       if (window.location.pathname == "/" ||window.location.pathname == "/register"||window.location.pathname == "/login" ||window.location.pathname == "/login") {
+//             $('footer').hide();
+//       } else {
+//             $('#footer').show();
+//       }
+//  });
 
 var $grid = $('.grid').masonry({
   itemSelector: '.grid-item',

@@ -166,7 +166,7 @@ a:hover {
 	width:80%;
 	margin:0 auto;
 	margin-top:5px;
-	margin-bottom:15px;
+	
 
 }
 
@@ -431,13 +431,13 @@ textarea{
 	FOOTER
 ====================*/
 
-/*footer {
+footer {
 	padding:10px;
 	color: #D64E85;
 	background: #F9C9DC;
 	text-align: center;
 	margin-top:20px;
-}*/
+}
 
 
 /*============================
