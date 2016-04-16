@@ -103,7 +103,7 @@ $('#newAndEditForm').validate({
             required: true
         },
         ingredients : {
-        	maxlength: 50,
+        	maxlength: 100,
         	required: true, 
         },  
         instructions : {
@@ -137,11 +137,11 @@ $('#newAndEditForm').validate({
     		required: "How long does it take to cook this dish? Enter 0 if cooking isn't needed.",
     	},    	
     	ingredients: {
-    		maxlength: "This ingredient is too long.",
+    		maxlength: "One of your ingredients is too long.",
     		required: "Please fill this in.",
     	},    	
     	instructions: {
-    		maxlength: "An instruction can't exceed 500 characters.",
+    		maxlength: "One of your instructions is too long",
     		required: "Please fill this in.",
     	},	
     },
